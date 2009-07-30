@@ -1,0 +1,28 @@
+#summary One-sentence summary of this page.
+#labels Featured
+
+= Dependencies =
+ * libgtk2.0-dev
+ * libdbus-glib-1-dev
+ * libglade2-dev
+ * libcurl3-dev
+
+= Download sources =
+== Check out from svn ==
+{{{
+svn checkout http://osd-lyrics.googlecode.com/svn/trunk/ osd-lyrics
+}}}
+== Download source package ==
+You can get source packages from [http://code.google.com/p/osd-lyrics/downloads/list]
+
+= Build and install =
+Make sure you are in the source directory, which is typically named osd-lyrics.
+Then follow the instructions:
+{{{
+aclocal
+autoconf
+automake --add-missing
+./configure
+make
+sudo make-install
+}}}
