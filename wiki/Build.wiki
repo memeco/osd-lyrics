@@ -2,10 +2,16 @@
 #labels Featured
 
 = Dependencies =
+== For deb systems ==
  * libgtk2.0-dev
  * libdbus-glib-1-dev
  * libglade2-dev
  * libcurl3-dev
+== For rpm systems ==
+ * libgtk2.0-devel
+ * libdbus-glib-1-devel
+ * libcurl3-devel
+ * libglade2-devel
 
 = Download sources =
 == Check out from svn ==
