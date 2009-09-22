@@ -1,0 +1,3 @@
+#summary Install instructions for Fedora users
+
+You can find RPM files at http://liangsuilong.fedorapeople.org/osd-lyrics/
