@@ -18,13 +18,13 @@ static void ol_osd_moved_handler (OlOsdWindow *osd, gpointer data);
 static void
 ol_osd_moved_handler (OlOsdWindow *osd, gpointer data)
 {
-  fprintf (stderr, "%s\n", __FUNCTION__);
+  /*fprintf (stderr, "%s\n", __FUNCTION__);
   OlConfig *config = ol_config_get_instance ();
   double xalign, yalign;
   ol_osd_window_get_alignment (osd, &xalign, &yalign);
   printf ("%s(%lf, %lf)\n", __FUNCTION__, xalign, yalign);
   ol_config_set_double (config, "OSD", "xalign", xalign);
-  ol_config_set_double (config, "OSD", "yalign", yalign);
+  ol_config_set_double (config, "OSD", "yalign", yalign);*/
 }
 
 static void
@@ -46,7 +46,7 @@ ol_osd_module_update_next_lyric (OlOsdModule *module, LrcInfo *current_lrc)
     else
     {
       module->lrc_next_id = -1;
-      ol_osd_window_set_lyric (module->osd, 1 - module->current_line, "");
+      ol_osd_window_set_lyric (module->osd, "");
     }
   }
   else
@@ -56,11 +56,10 @@ ol_osd_module_update_next_lyric (OlOsdModule *module, LrcInfo *current_lrc)
     if (info != NULL)
     {
       module->lrc_next_id = ol_lrc_parser_get_lyric_id (info);
-      ol_osd_window_set_lyric (module->osd, 1 - module->current_line,
-                               ol_lrc_parser_get_lyric_text (info));
+      ol_osd_window_set_lyric (module->osd, ol_lrc_parser_get_lyric_text (info));
     }
   }
-  ol_osd_window_set_percentage (module->osd, 1 - module->current_line, 0.0);
+  ol_osd_window_set_percentage (module->osd, 0.0);
 }
 
 static void
@@ -77,41 +76,41 @@ config_change_handler (OlConfig *config, gchar *group, gchar *name, gpointer use
   if (strcmp (name, "locked") == 0)
   {
     fprintf (stderr, "  locked: %d\n", ol_config_get_bool (config, "OSD", "locked"));
-    ol_osd_window_set_locked (osd,
-                              ol_config_get_bool (config, "OSD", "locked"));
+    /*ol_osd_window_set_locked (osd,
+                              ol_config_get_bool (config, "OSD", "locked"));*/
   }
   else if (strcmp (name, "xalign") == 0 || strcmp (name, "yalign") == 0)
   {
     double xalign = ol_config_get_double (config, "OSD", "xalign");
     double yalign = ol_config_get_double (config, "OSD", "yalign");
-    ol_osd_window_set_alignment (osd, xalign, yalign);
+    //ol_osd_window_set_alignment (osd, xalign, yalign);
   }
   else if (strcmp (name, "font-family") == 0)
   {
     gchar *font = ol_config_get_string (config, "OSD", "font-family");
     g_return_if_fail (font != NULL);
-    ol_osd_window_set_font_family (osd, font);
+    //ol_osd_window_set_font_family (osd, font);
     g_free (font);
   }
   else if (strcmp (name, "font-size") == 0)
   {
-    ol_osd_window_set_font_size (osd,
-                                 ol_config_get_double (config, "OSD", "font-size"));
+    //ol_osd_window_set_font_size (osd,
+                                 //ol_config_get_double (config, "OSD", "font-size"));
   }
   else if (strcmp (name, "width") == 0)
   {
-    ol_osd_window_set_width (osd,
-                             ol_config_get_int (config, "OSD", "width"));
+    //ol_osd_window_set_width (osd,
+                             //ol_config_get_int (config, "OSD", "width"));
   }
   else if (strcmp (name, "lrc-align-0") == 0)
   {
-    ol_osd_window_set_line_alignment (osd, 0,
-                                      ol_config_get_double (config, "OSD", name));
+    //ol_osd_window_set_line_alignment (osd, 0,
+                                      //ol_config_get_double (config, "OSD", name));
   }
   else if (strcmp (name, "lrc-align-1") == 0)
   {
-    ol_osd_window_set_line_alignment (osd, 1,
-                                      ol_config_get_double (config, "OSD", name));
+    //ol_osd_window_set_line_alignment (osd, 1,
+                                      //ol_config_get_double (config, "OSD", name));
   }
   else if (strcmp (name, "active-lrc-color") == 0)
   {
@@ -122,7 +121,7 @@ config_change_handler (OlConfig *config, gchar *group, gchar *name, gpointer use
     if (color_str != NULL)
     {
       OlColor *colors = ol_color_from_str_list ((const char**)color_str, NULL);
-      ol_osd_window_set_active_colors (osd, colors[0], colors[1], colors[2]);
+      //ol_osd_window_set_active_colors (osd, colors[0], colors[1], colors[2]);
       g_free (colors);
       g_strfreev (color_str);
     }
@@ -136,7 +135,7 @@ config_change_handler (OlConfig *config, gchar *group, gchar *name, gpointer use
     if (color_str != NULL)
     {
       OlColor *colors = ol_color_from_str_list ((const char**)color_str, NULL);
-      ol_osd_window_set_inactive_colors (osd, colors[0], colors[1], colors[2]);
+      //ol_osd_window_set_inactive_colors (osd, colors[0], colors[1], colors[2]);
       g_free (colors);
       g_strfreev (color_str);
     }
@@ -144,7 +143,7 @@ config_change_handler (OlConfig *config, gchar *group, gchar *name, gpointer use
   else if (strcmp (name, "line-count") == 0)
   {
     module->line_count = ol_config_get_int (config, "OSD", name);
-    ol_osd_window_set_line_count (osd, module->line_count);
+    //ol_osd_window_set_line_count (osd, module->line_count);
   }
   else if (strcmp (name, "visible") == 0)
   {
@@ -222,8 +221,8 @@ ol_osd_module_set_music_info (OlOsdModule *module, OlMusicInfo *music_info)
   {
     module->display = FALSE;
     gtk_widget_hide (GTK_WIDGET (module->osd));
-    ol_osd_window_set_lyric (module->osd, 0, NULL);
-    ol_osd_window_set_lyric (module->osd, 1, NULL);
+    ol_osd_window_set_lyric (module->osd, NULL);
+    ol_osd_window_set_lyric (module->osd, NULL);
   }
   module->current_line = 0;
   module->lrc_id = -1;
@@ -260,18 +259,21 @@ ol_osd_module_set_played_time (OlOsdModule *module, int played_time)
       {
         module->current_line = 0;
         if (ol_lrc_parser_get_lyric_text (info) != NULL)
-          ol_osd_window_set_lyric (module->osd, module->current_line, ol_lrc_parser_get_lyric_text (info));
+        {
+          printf("haha");
+          ol_osd_window_set_lyric (module->osd, ol_lrc_parser_get_lyric_text (info));
+        }
         if (id != lyric_id)
           ol_osd_window_set_current_percentage (module->osd, 0.0);
         ol_osd_module_update_next_lyric (module, info);
       }
       else
       {
-        ol_osd_window_set_percentage (module->osd, module->current_line, 1.0);
+        ol_osd_window_set_percentage (module->osd, 1.0);
         module->current_line = 1 - module->current_line;
       }
       module->lrc_id = id;
-      ol_osd_window_set_current_line (module->osd, module->current_line);
+      //ol_osd_window_set_current_line (module->osd, module->current_line);
     }
     if (id == lyric_id && percentage > 0.5)
       ol_osd_module_update_next_lyric (module, info);
