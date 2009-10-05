@@ -265,6 +265,9 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
   cairo_set_font_size(cr, 13);
   cairo_move_to(cr, xpos,ypos*(1-percentage) );
   cairo_show_text(cr, osd->lyric);
+
+  cairo_move_to(cr, xpos,ypos*(1-percentage)+10 );
+  cairo_show_text(cr, osd->lyric);
   cairo_destroy(cr);
 }
 
