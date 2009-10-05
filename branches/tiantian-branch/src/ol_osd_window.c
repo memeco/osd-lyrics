@@ -67,6 +67,8 @@ static void
 ol_osd_window_init (OlOsdWindow *self)
 {
   printf ("init\n");
+  GTK_WIDGET_SET_FLAGS (self, GTK_TOPLEVEL);
+  GTK_PRIVATE_SET_FLAG (self, GTK_ANCHORED);
   self->lyric = NULL;
   self->percentage = 0.0;
 }
@@ -120,8 +122,8 @@ ol_osd_window_realize (GtkWidget *widget)
   attributes.window_type = GDK_WINDOW_CHILD;
   attributes.x = widget->allocation.x;
   attributes.y = widget->allocation.y;
-  attributes.width = 80;
-  attributes.height = 100;
+  attributes.width = 800;
+  attributes.height = 1000;
 
   attributes.wclass = GDK_INPUT_OUTPUT;
   attributes.event_mask = gtk_widget_get_events(widget) | GDK_EXPOSURE_MASK;
@@ -155,6 +157,8 @@ static void
 ol_osd_window_map (GtkWidget *widget)
 {
   fprintf (stderr, "%s\n", __FUNCTION__);
+  GTK_WIDGET_CLASS (parent_class)->map (widget);
+  
   if (GTK_WIDGET_MAPPED (widget))
     return;
   GTK_WIDGET_SET_FLAGS (widget, GTK_MAPPED);
@@ -235,7 +239,7 @@ ol_osd_window_paint (OlOsdWindow *osd)
   cairo_t *cr;
   cr = gdk_cairo_create (widget->window);
   ol_osd_window_paint_lyrics (osd, cr);
-  cairo_destroy (cr); 
+  //cairo_destroy (cr); 
 }
 
 static void
@@ -246,16 +250,21 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
   if (!GTK_WIDGET_REALIZED (widget))
     gtk_widget_realize (widget);
   
-  gdouble ypos = 400, xpos = 0;
+  gdouble ypos = 400, xpos = 100;
   double percentage = osd->percentage;
+  printf("%f",percentage);
   /* paint the lyric */
+  cairo_set_source_rgb(cr, 0.5, 0.5, 1);
+  cairo_rectangle(cr, 100, 0, 400, 400);
+  cairo_fill(cr);
+
   cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
   cairo_select_font_face(cr, "Purisa",
       CAIRO_FONT_SLANT_NORMAL,
       CAIRO_FONT_WEIGHT_BOLD);
   cairo_set_font_size(cr, 13);
   cairo_move_to(cr, xpos,ypos*(1-percentage) );
-  cairo_show_text(cr, "Most relationships seem so transitory");
+  cairo_show_text(cr, osd->lyric);
   cairo_destroy(cr);
 }
 
