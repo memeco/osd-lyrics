@@ -27,6 +27,8 @@ static void ol_osd_window_paint (OlOsdWindow *osd);
 
 static void ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr);
 
+static void ol_osd_window_set_paint_lyrics (OlOsdWindow *osd);
+
 static GtkWidgetClass *parent_class = NULL;
 
 GType
@@ -69,8 +71,14 @@ ol_osd_window_init (OlOsdWindow *self)
   printf ("init\n");
   GTK_WIDGET_SET_FLAGS (self, GTK_TOPLEVEL);
   GTK_PRIVATE_SET_FLAG (self, GTK_ANCHORED);
-  self->lyric = NULL;
+  int i;
+  for (i = 0; i < 10; i++)
+  {
+    self->paint_lyrics[i] = NULL;
+  }
   self->percentage = 0.0;
+  self->lrc_file = NULL;
+  self->current_lyric_id = -1; 
 }
 
 static void
@@ -101,10 +109,10 @@ static void
 ol_osd_window_destroy (GtkObject *object)
 {
   OlOsdWindow *osd = OL_OSD_WINDOW (object);
-  if (osd->lyric!= NULL)
+  if (osd->current_lyric_id!= -1)
   {
-    g_free (osd->lyric);
-    osd->lyric = NULL;
+    //g_free (osd->lyric);
+    osd->current_lyric_id = -1;
   }
   GTK_OBJECT_CLASS (parent_class)->destroy (object);
 }
@@ -263,28 +271,47 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
       CAIRO_FONT_SLANT_NORMAL,
       CAIRO_FONT_WEIGHT_BOLD);
   cairo_set_font_size(cr, 13);
+
+
+  int i = 0,y = 10;
+  
+  for (i = 0; i<10 ;i++)
+  {
+    if (i == 4)
+    {
+      cairo_set_source_rgb(cr, 0.1, 0.5, 0.1);
+    }
+    cairo_move_to (cr, xpos,50+y*(1-percentage)+i*20);
+    cairo_show_text(cr, osd->paint_lyrics[i]);
+    cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
+  }
+  /*
   cairo_move_to(cr, xpos,ypos*(1-percentage) );
   cairo_show_text(cr, osd->lyric);
 
   cairo_move_to(cr, xpos,ypos*(1-percentage)+10 );
-  cairo_show_text(cr, osd->lyric);
+  cairo_show_text(cr, osd->lyric);*/
   cairo_destroy(cr);
 }
 
 void
-ol_osd_window_set_lyric (OlOsdWindow *osd, const char *lyric)
+ol_osd_window_set_lyric (OlOsdWindow *osd, const LrcInfo *lyric)
 {
-  fprintf (stderr, "%s\n%s\n",
-           __FUNCTION__, lyric);
+  // fprintf (stderr, "%s\n%s\n",
+  //       __FUNCTION__, lyric);
   g_return_if_fail (OL_IS_OSD_WINDOW (osd));
-
+  /*
   if (osd->lyric!= NULL)
     g_free (osd->lyric);
   if (lyric != NULL)
     osd->lyric = g_strdup (lyric);
   else
-    osd->lyric = g_strdup ("");
-
+  osd->lyric = g_strdup ("");*/
+  if (lyric != NULL)
+    osd->current_lyric_id = ol_lrc_parser_get_lyric_id (lyric);
+  else
+    osd->current_lyric_id = -1;
+  ol_osd_window_set_paint_lyrics (osd);
   ol_osd_window_paint(osd);
 
 }
@@ -305,4 +332,44 @@ ol_osd_window_set_percentage (OlOsdWindow *osd, double percentage)
   g_return_if_fail (OL_IS_OSD_WINDOW (osd));
   osd->percentage = percentage;
   ol_osd_window_paint (osd);
+}
+
+static void
+ol_osd_window_set_paint_lyrics (OlOsdWindow *osd)
+{
+  int id = osd->current_lyric_id;
+  LrcInfo *info;
+  if (id == -1)
+  {
+    int i;
+    for(i = 0; i <10 ; i++)
+    {
+      osd->paint_lyrics[i] = NULL;
+    }
+  }
+  else if (id > 5)
+  {
+    int i = 0;
+    for (i = 0; i < 10; i++)
+    {
+      info = ol_lrc_parser_get_lyric_by_id (osd->lrc_file, (id-6+i));
+      osd->paint_lyrics[i] = ol_lrc_parser_get_lyric_text (info);
+    }
+  }
+  else
+  {
+    int j = 0;
+    for (j = 0; j < 5-id ;j++)
+    {
+      if (j < 5-id)
+      {
+        osd->paint_lyrics[j] = "";
+      }
+      else
+      {
+        info = ol_lrc_parser_get_lyric_by_id (osd->lrc_file, (id-6+j));
+        osd->paint_lyrics[j] = ol_lrc_parser_get_lyric_text (info);
+      }
+    }
+  }
 }

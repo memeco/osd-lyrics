@@ -46,7 +46,7 @@ ol_osd_module_update_next_lyric (OlOsdModule *module, LrcInfo *current_lrc)
     else
     {
       module->lrc_next_id = -1;
-      ol_osd_window_set_lyric (module->osd, "");
+      ol_osd_window_set_lyric (module->osd, NULL);
     }
   }
   else
@@ -56,7 +56,7 @@ ol_osd_module_update_next_lyric (OlOsdModule *module, LrcInfo *current_lrc)
     if (info != NULL)
     {
       module->lrc_next_id = ol_lrc_parser_get_lyric_id (info);
-      ol_osd_window_set_lyric (module->osd, ol_lrc_parser_get_lyric_text (info));
+      ol_osd_window_set_lyric (module->osd, info);
     }
   }
   ol_osd_window_set_percentage (module->osd, 0.0);
@@ -261,7 +261,7 @@ ol_osd_module_set_played_time (OlOsdModule *module, int played_time)
         if (ol_lrc_parser_get_lyric_text (info) != NULL)
         {
           printf("haha");
-          ol_osd_window_set_lyric (module->osd, ol_lrc_parser_get_lyric_text (info));
+          ol_osd_window_set_lyric (module->osd, info);
         }
         if (id != lyric_id)
           ol_osd_window_set_current_percentage (module->osd, 0.0);
@@ -314,6 +314,7 @@ void
 ol_osd_module_set_lrc (OlOsdModule *module, LrcQueue *lrc_file)
 {
   module->lrc_file = lrc_file;
+  module->osd->lrc_file = lrc_file;
   /* if (lrc_file != NULL) */
   /*   module->display = TRUE; */
 }

@@ -4,11 +4,14 @@
 
 #include <gtk/gtk.h>
 #include "ol_osd_render.h"
+#include "ol_lrc_parser.h"
 
 #define OL_OSD_WINDOW(obj)                   GTK_CHECK_CAST (obj, ol_osd_window_get_type (), OlOsdWindow)
 #define OL_OSD_WINDOW_CLASS(klass)           GTK_CHECK_CLASS_CAST (klass, ol_osd_window_get_type (), OlOsdWindowClass)
 #define OL_IS_OSD_WINDOW(obj)                GTK_CHECK_TYPE (obj, ol_osd_window_get_type ())
 #define OL_OSD_WINDOW_GET_CLASS(obj)         (G_TYPE_INSTANCE_GET_CLASS ((obj), ol_osd_window_get_type (), OlOsdWindowClass))
+#define OL_OSD_WINDOW_MAX_LINE_COUNT         10
+
 
 typedef struct _OlOsdWindow                  OlOsdWindow;
 typedef struct _OlOsdWindowClass             OlOsdWindowClass;
@@ -16,8 +19,11 @@ typedef struct _OlOsdWindowClass             OlOsdWindowClass;
 struct _OlOsdWindow
 {
   GtkWidget widget;
-  gchar *lyric;
+  //gchar *lyric;
+  gchar *paint_lyrics[OL_OSD_WINDOW_MAX_LINE_COUNT];
   double percentage;
+  LrcQueue *lrc_file;
+  gint current_lyric_id;
 };
 
 
@@ -42,7 +48,7 @@ GtkWidget* ol_osd_window_new (void);
  * @param line The line whose lyric will be set. Can be 0 or 1.
  * @param lyric The lyric of the line. NULL means the line has no lyric currently.
  */
-void ol_osd_window_set_lyric (OlOsdWindow *osd, const char *lyric);
+void ol_osd_window_set_lyric (OlOsdWindow *osd, const LrcInfo *lyric);
 
 
 
