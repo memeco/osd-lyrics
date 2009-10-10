@@ -34,6 +34,8 @@
 #include "ol_osd_module.h"
 #include "ol_keybindings.h"
 
+
+
 #define REFRESH_INTERVAL 100
 #define MAX_PATH_LEN 1024
 static const gchar *LRC_PATH = ".lyrics";

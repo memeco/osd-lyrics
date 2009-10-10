@@ -1,5 +1,9 @@
 #include <gtk/gtkprivate.h>
 #include "ol_osd_window.h"
+#include <pango/pangocairo.h>
+
+#define FONT "Sans Bold 10"
+
 
 #define OL_OSD_WINDOW_GET_PRIVATE(obj)    (G_TYPE_INSTANCE_GET_PRIVATE \
                                                  ((obj),                        \
@@ -261,8 +265,59 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
   gdouble ypos = 400, xpos = 100;
   double percentage = osd->percentage;
   printf("%f",percentage);
-  /* paint the lyric */
+
+
   cairo_set_source_rgb(cr, 0.5, 0.5, 1);
+  cairo_rectangle(cr, 100, 0, 400, 400);
+  cairo_fill(cr);
+
+
+  
+  /* paint the lyric */
+   PangoLayout *layout;
+   PangoFontDescription *desc;
+   int font_height;
+   int width, height,i,y=10;
+   layout = pango_cairo_create_layout (cr);
+   cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
+
+
+   if (osd->paint_lyrics !=NULL)
+   {
+     for (i=0; i<10; i++)
+     {
+       pango_layout_set_text (layout, osd->paint_lyrics[i], -1);
+       desc = pango_font_description_from_string (FONT);
+       pango_layout_set_font_description (layout, desc);
+       pango_font_description_free (desc);
+
+       cairo_save (cr);
+       if (i == 6)
+       {
+         cairo_set_source_rgb(cr, 0.1, 0.5, 0.1);
+       }
+       cairo_move_to (cr, xpos,50+y*(1-percentage)+i*20);
+
+       pango_cairo_update_layout (cr, layout);
+       //pango_layout_get_size (layout, &width, &height);
+       // cairo_move_to (cr, - ((double)width / PANGO_SCALE) / 2, - RADIUS);
+       pango_cairo_show_layout (cr, layout);
+       cairo_restore (cr);
+       cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
+     }
+     g_object_unref (layout);
+   }
+
+
+
+
+
+
+
+
+
+  
+  /* cairo_set_source_rgb(cr, 0.5, 0.5, 1);
   cairo_rectangle(cr, 100, 0, 400, 400);
   cairo_fill(cr);
 
@@ -284,13 +339,8 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
     cairo_move_to (cr, xpos,50+y*(1-percentage)+i*20);
     cairo_show_text(cr, osd->paint_lyrics[i]);
     cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
-  }
-  /*
-  cairo_move_to(cr, xpos,ypos*(1-percentage) );
-  cairo_show_text(cr, osd->lyric);
+  }*/
 
-  cairo_move_to(cr, xpos,ypos*(1-percentage)+10 );
-  cairo_show_text(cr, osd->lyric);*/
   cairo_destroy(cr);
 }
 
