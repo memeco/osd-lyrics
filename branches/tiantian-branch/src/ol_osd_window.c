@@ -262,7 +262,7 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
   if (!GTK_WIDGET_REALIZED (widget))
     gtk_widget_realize (widget);
   
-  gdouble ypos = 400, xpos = 100;
+  gdouble ypos = 100, xpos = 100;
   double percentage = osd->percentage;
   printf("%f",percentage);
 
@@ -277,7 +277,7 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
    PangoLayout *layout;
    PangoFontDescription *desc;
    int font_height;
-   int width, height,i,y=10;
+   int width, height,i,y=20;
    layout = pango_cairo_create_layout (cr);
    cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
 
@@ -290,18 +290,38 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
        desc = pango_font_description_from_string (FONT);
        pango_layout_set_font_description (layout, desc);
        pango_font_description_free (desc);
+       pango_layout_get_pixel_size(layout,&width,&height);
 
        cairo_save (cr);
        if (i == 6)
        {
          cairo_set_source_rgb(cr, 0.1, 0.5, 0.1);
        }
-       cairo_move_to (cr, xpos,50+y*(1-percentage)+i*20);
+       if (i == 7&&percentage>0.60)
+       {
+         cairo_set_source_rgb(cr, 0.1, 0.5, 0.1);
+       }
+       cairo_move_to (cr, xpos,y*(1-percentage)+i*20);
+
 
        pango_cairo_update_layout (cr, layout);
        //pango_layout_get_size (layout, &width, &height);
        // cairo_move_to (cr, - ((double)width / PANGO_SCALE) / 2, - RADIUS);
        pango_cairo_show_layout (cr, layout);
+       if(i == 9)
+       {
+          cairo_save (cr);
+          cairo_rectangle(cr,xpos,100,(double)width*percentage,height);
+          //cairo_rectangle(cr,xpos,y*(1-percentage)+i*20,width/3,height);
+          cairo_clip (cr);
+         cairo_set_source_rgb(cr, 0.5,1,1);
+         pango_cairo_show_layout (cr, layout);
+         
+         //cairo_set_source_rgb(cr, 0.5, 1, 0.5);
+         //cairo_rectangle(cr,xpos,y*(1-percentage)+i*20,10,10);
+         //cairo_clip (cr);
+         //pango_cairo_show_layout (cr, layout);
+       }
        cairo_restore (cr);
        cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
      }
