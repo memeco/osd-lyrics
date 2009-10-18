@@ -312,15 +312,15 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
        {
           cairo_save (cr);
           cairo_rectangle(cr,xpos,100,(double)width*percentage,height);
-          //cairo_rectangle(cr,xpos,y*(1-percentage)+i*20,width/3,height);
           cairo_clip (cr);
-         cairo_set_source_rgb(cr, 0.5,1,1);
-         pango_cairo_show_layout (cr, layout);
-         
-         //cairo_set_source_rgb(cr, 0.5, 1, 0.5);
-         //cairo_rectangle(cr,xpos,y*(1-percentage)+i*20,10,10);
-         //cairo_clip (cr);
-         //pango_cairo_show_layout (cr, layout);
+          cairo_set_source_rgb(cr, 0.5,1,1);
+          pango_cairo_show_layout (cr, layout);
+          /*clip代码*/
+          cairo_set_source_rgb(cr, 0.5, 1, 0.5);
+          cairo_rectangle(cr,xpos,y*(1-percentage)+i*20,width/2,height);
+          cairo_clip (cr);
+          pango_cairo_show_layout (cr, layout);
+          /*clip代码*/
        }
        cairo_restore (cr);
        cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
