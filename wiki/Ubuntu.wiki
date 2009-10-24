@@ -21,6 +21,12 @@ deb http://ppa.launchpad.net/osd-lyrics/ppa/ubuntu jaunty main
 deb-src http://ppa.launchpad.net/osd-lyrics/ppa/ubuntu jaunty main
 }}}
 
+Ubuntu 9.10 (Karmic):
+{{{
+deb http://ppa.launchpad.net/osd-lyrics/ppa/ubuntu karmic main 
+deb-src http://ppa.launchpad.net/osd-lyrics/ppa/ubuntu karmic main
+}}}
+
 Add signing key:
 {{{
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4865CF4F
