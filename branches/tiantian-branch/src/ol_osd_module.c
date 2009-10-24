@@ -244,6 +244,7 @@ ol_osd_module_set_played_time (OlOsdModule *module, int played_time)
                                       current_lrc,
                                       &percentage,
                                       &lyric_id);
+    fprintf (stderr, "per:%lf\n", percentage);
     LrcInfo *info = ol_lrc_parser_get_lyric_by_id (module->lrc_file,
                                                    lyric_id);
     info = ol_osd_module_get_real_lyric (info);

@@ -35,6 +35,7 @@ static void ol_osd_window_set_paint_lyrics (OlOsdWindow *osd);
 
 static GtkWidgetClass *parent_class = NULL;
 
+
 GType
 ol_osd_window_get_type (void)
 {
@@ -264,14 +265,16 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
   
   gdouble ypos = 100, xpos = 100;
   double percentage = osd->percentage;
-  printf("%f",percentage);
+  //printf("%f",percentage);
 
 
-  cairo_set_source_rgb(cr, 0.5, 0.5, 1);
+  cairo_set_source_rgb(cr, 1, 0.5, 1);
   cairo_rectangle(cr, 100, 0, 400, 400);
   cairo_fill(cr);
-
-
+  /*clip代码*/
+  cairo_set_source_rgb(cr, 0, 1, 0.5);
+  cairo_rectangle(cr,100,20,400,180);
+  cairo_clip (cr);
   
   /* paint the lyric */
    PangoLayout *layout;
@@ -280,7 +283,6 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
    int width, height,i,y=20;
    layout = pango_cairo_create_layout (cr);
    cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
-
 
    if (osd->paint_lyrics !=NULL)
    {
@@ -296,6 +298,7 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
        if (i == 6)
        {
          cairo_set_source_rgb(cr, 0.1, 0.5, 0.1);
+         /* fprintf (stderr, "per:%lf, y:%d\n", percentage, (int)(50+y*(1-percentage)+i*20)); */
        }
        if (i == 7&&percentage>0.60)
        {
@@ -303,80 +306,24 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
        }
        cairo_move_to (cr, xpos,y*(1-percentage)+i*20);
 
-
        pango_cairo_update_layout (cr, layout);
-       //pango_layout_get_size (layout, &width, &height);
-       // cairo_move_to (cr, - ((double)width / PANGO_SCALE) / 2, - RADIUS);
        pango_cairo_show_layout (cr, layout);
-       if(i == 9)
-       {
-          cairo_save (cr);
-          cairo_rectangle(cr,xpos,100,(double)width*percentage,height);
-          cairo_clip (cr);
-          cairo_set_source_rgb(cr, 0.5,1,1);
-          pango_cairo_show_layout (cr, layout);
-          /*clip代码*/
-          cairo_set_source_rgb(cr, 0.5, 1, 0.5);
-          cairo_rectangle(cr,xpos,y*(1-percentage)+i*20,width/2,height);
-          cairo_clip (cr);
-          pango_cairo_show_layout (cr, layout);
-          /*clip代码*/
-       }
        cairo_restore (cr);
        cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
      }
      g_object_unref (layout);
+   
+
    }
-
-
-
-
-
-
-
-
-
-  
-  /* cairo_set_source_rgb(cr, 0.5, 0.5, 1);
-  cairo_rectangle(cr, 100, 0, 400, 400);
-  cairo_fill(cr);
-
-  cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
-  cairo_select_font_face(cr, "Purisa",
-      CAIRO_FONT_SLANT_NORMAL,
-      CAIRO_FONT_WEIGHT_BOLD);
-  cairo_set_font_size(cr, 13);
-
-
-  int i = 0,y = 10;
-  
-  for (i = 0; i<10 ;i++)
-  {
-    if (i == 4)
-    {
-      cairo_set_source_rgb(cr, 0.1, 0.5, 0.1);
-    }
-    cairo_move_to (cr, xpos,50+y*(1-percentage)+i*20);
-    cairo_show_text(cr, osd->paint_lyrics[i]);
-    cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
-  }*/
-
-  cairo_destroy(cr);
 }
+
+  
 
 void
 ol_osd_window_set_lyric (OlOsdWindow *osd, const LrcInfo *lyric)
 {
-  // fprintf (stderr, "%s\n%s\n",
-  //       __FUNCTION__, lyric);
+
   g_return_if_fail (OL_IS_OSD_WINDOW (osd));
-  /*
-  if (osd->lyric!= NULL)
-    g_free (osd->lyric);
-  if (lyric != NULL)
-    osd->lyric = g_strdup (lyric);
-  else
-  osd->lyric = g_strdup ("");*/
   if (lyric != NULL)
     osd->current_lyric_id = ol_lrc_parser_get_lyric_id (lyric);
   else
