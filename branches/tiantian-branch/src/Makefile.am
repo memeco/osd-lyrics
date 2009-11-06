@@ -19,6 +19,8 @@ osd_lyrics_SOURCES = \
 	ol_glade.c \
 	ol_about.c \
 	ol_option.c \
+	ol_classic_window.c \
+	ol_classic_module.c\
 	ol_osd_window.c \
 	ol_osd_render.c \
 	ol_osd_module.c \

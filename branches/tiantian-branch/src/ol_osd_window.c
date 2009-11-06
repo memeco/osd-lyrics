@@ -283,7 +283,7 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
    int width, height,i,y=20;
    layout = pango_cairo_create_layout (cr);
    cairo_set_source_rgb(cr, 0.1, 0.1, 0.1);
-
+   printf ("%s\n", osd->paint_lyrics[6]);
    if (osd->paint_lyrics !=NULL)
    {
      for (i=0; i<10; i++)
@@ -322,14 +322,23 @@ ol_osd_window_paint_lyrics (OlOsdWindow *osd, cairo_t *cr)
 void
 ol_osd_window_set_lyric (OlOsdWindow *osd, const LrcInfo *lyric)
 {
-
+  printf("haha2\n");
   g_return_if_fail (OL_IS_OSD_WINDOW (osd));
   if (lyric != NULL)
+  {
     osd->current_lyric_id = ol_lrc_parser_get_lyric_id (lyric);
+    printf("haha3\n");
+  }
   else
+  {
     osd->current_lyric_id = -1;
+    printf("haha4\n");
+  }
   ol_osd_window_set_paint_lyrics (osd);
+  printf("haha5\n");
   ol_osd_window_paint(osd);
+  printf("haha6\n");
+
 
 }
 
@@ -356,15 +365,28 @@ ol_osd_window_set_paint_lyrics (OlOsdWindow *osd)
 {
   int id = osd->current_lyric_id;
   LrcInfo *info;
-  if (id == -1)
+  if (id < 0)
   {
     int i;
     for(i = 0; i <10 ; i++)
     {
-      osd->paint_lyrics[i] = NULL;
+      osd->paint_lyrics[i] = "";
     }
   }
-  else if (id > 5)
+  else if (id <= 5&& id >= 0)
+  {
+    int j;
+    for (j=0; j<4-id; j++)
+    {
+      osd->paint_lyrics[j] = "";
+    }
+    for (j = 4-id; j<10; j++)
+    {
+      info = ol_lrc_parser_get_lyric_by_id (osd->lrc_file, (j-4+id));
+      osd->paint_lyrics[j] = ol_lrc_parser_get_lyric_text (info);
+    }
+  }
+  else if (id > 5 && id < ol_lrc_parser_get_most_id_of_list (osd->lrc_file))
   {
     int i = 0;
     for (i = 0; i < 10; i++)
@@ -373,20 +395,26 @@ ol_osd_window_set_paint_lyrics (OlOsdWindow *osd)
       osd->paint_lyrics[i] = ol_lrc_parser_get_lyric_text (info);
     }
   }
+  else if (id >= ol_lrc_parser_get_most_id_of_list (osd->lrc_file) - 5)
+  {
+    int k;
+    for (k=0; k<5; k++)
+    {
+      info = ol_lrc_parser_get_lyric_by_id (osd->lrc_file, (id-4+k));
+      osd->paint_lyrics[k] = ol_lrc_parser_get_lyric_text (info);
+    }
+    for (k = 5; k<ol_lrc_parser_get_most_id_of_list(osd->lrc_file)-id+5; k++)
+    {
+      info = ol_lrc_parser_get_lyric_by_id (osd->lrc_file, (id-4+k));
+      osd->paint_lyrics[k] = ol_lrc_parser_get_lyric_text (info);
+    }
+  }
   else
   {
-    int j = 0;
-    for (j = 0; j < 5-id ;j++)
+    int i;
+    for(i = 0; i <10 ; i++)
     {
-      if (j < 5-id)
-      {
-        osd->paint_lyrics[j] = "";
-      }
-      else
-      {
-        info = ol_lrc_parser_get_lyric_by_id (osd->lrc_file, (id-6+j));
-        osd->paint_lyrics[j] = ol_lrc_parser_get_lyric_text (info);
-      }
+      osd->paint_lyrics[i] = "";
     }
   }
 }

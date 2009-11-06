@@ -32,7 +32,7 @@ main (int argc, char **argv)
 /*   GdkPixmap *pixmap = gdk_pixmap_new (NULL, 1280, 800, 1); */
 /*   gtk_widget_input_shape_combine_mask (ol_osd, pixmap, 0, 0); */
   ol_osd_window_resize (OL_OSD_WINDOW (ol_osd), 800, 140);
-  ol_osd_window_set_lyric (OL_OSD_WINDOW (ol_osd), 0, "还没好好地感受");
+  ol_osd_window_set_lyric (OL_OSD_WINDOW (ol_osd),0, "还没好好地感受");
 /*   ol_osd_window_set_lyric (OL_OSD_WINDOW (ol_osd), 1, "雪花绽放的气候"); */
 /*   ol_osd_paint (OL_OSD_WINDOW (ol_osd), "还没好好地感受", "雪花绽放的气候", 0.3); */
   ol_osd_window_set_alignment (OL_OSD_WINDOW (ol_osd), 0.5, 1.0);
