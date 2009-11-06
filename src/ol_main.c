@@ -33,6 +33,7 @@
 #include "ol_config.h"
 #include "ol_osd_module.h"
 #include "ol_keybindings.h"
+#include "ol_classic_module.h"
 
 
 
@@ -302,6 +303,8 @@ refresh_music_info (gpointer data)
     return TRUE;
   }
   ol_osd_module_set_played_time (module, time);
+  //ol_classic_module_set_played_time (module, time);
+
   return TRUE;
 }
 

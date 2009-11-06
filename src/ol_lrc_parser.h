@@ -95,4 +95,12 @@ int ol_lrc_parser_get_lyric_id(LrcInfo *current_lyric);
  * @return the lrcInfo, must not be freed.
  */
 LrcInfo *ol_lrc_parser_get_lyric_by_id(LrcQueue *list,int lyric_id);
+/** 
+ * Get the the most lyric id  from LrcQueue 
+ * 
+ * @param list The LrcQueue
+ * 
+ * @return the most lyric id, must not be freed.
+ */
+int ol_lrc_parser_get_most_id_of_list (LrcQueue *list);
 #endif

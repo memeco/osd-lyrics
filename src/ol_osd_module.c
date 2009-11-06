@@ -36,7 +36,7 @@ ol_osd_module_update_next_lyric (OlOsdModule *module, LrcInfo *current_lrc)
     return;
   }
   LrcInfo *info = ol_lrc_parser_get_next_of_lyric (current_lrc);
-  info = ol_osd_module_get_real_lyric (info);
+  //info = ol_osd_module_get_real_lyric (info);
   if (info == NULL)
   {
     if (module->lrc_next_id == -1)
@@ -261,8 +261,9 @@ ol_osd_module_set_played_time (OlOsdModule *module, int played_time)
         module->current_line = 0;
         if (ol_lrc_parser_get_lyric_text (info) != NULL)
         {
-          printf("haha");
+          printf("haha\n");
           ol_osd_window_set_lyric (module->osd, info);
+
         }
         if (id != lyric_id)
           ol_osd_window_set_current_percentage (module->osd, 0.0);
