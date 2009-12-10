@@ -48,7 +48,8 @@ static gchar *previous_artist = NULL;
 static gint previous_duration = 0;
 static gint previous_position = -1;
 static LrcQueue *lrc_file = NULL;
-static OlOsdModule *module = NULL;
+//static OlOsdModule *module = NULL;
+static OlClassicModule *module = NULL;
 
 static void ensure_lyric_dir ();
 static gint refresh_music_info (gpointer data);
@@ -185,17 +186,22 @@ change_music ()
   get_lyric_path_name (&music_info, file_name);
   if (module != NULL)
   {
-    ol_osd_module_set_music_info (module, &music_info);
-    ol_osd_module_set_duration (module, previous_duration);
+    //ol_osd_module_set_music_info (module, &music_info);
+    //ol_osd_module_set_duration (module, previous_duration);
+    ol_classic_module_set_music_info (module, &music_info);
+    ol_classic_module_set_duration (module, previous_duration);
   }
-  ol_osd_module_set_lrc (module, NULL);
+  //ol_osd_module_set_lrc (module, NULL);
+  ol_classic_module_set_lrc (module, NULL);
   if (!is_file_exist (file_name))
   {
     if (!download_lyric (&music_info) || !is_file_exist (file_name))
     return;
   }
   lrc_file = ol_lrc_parser_get_lyric_info (file_name);
-  ol_osd_module_set_lrc (module, lrc_file);
+  // ol_osd_module_set_lrc (module, lrc_file);
+  ol_classic_module_set_lrc (module, lrc_file);
+
 }
 
 void
@@ -302,8 +308,8 @@ refresh_music_info (gpointer data)
     previous_position = -1;
     return TRUE;
   }
-  ol_osd_module_set_played_time (module, time);
-  //ol_classic_module_set_played_time (module, time);
+  //ol_osd_module_set_played_time (module, time);
+  ol_classic_module_set_played_time (module, time);
 
   return TRUE;
 }
@@ -324,7 +330,9 @@ main (int argc, char **argv)
   gtk_init (&argc, &argv);
   ensure_lyric_dir ();
   ol_player_init ();
-  module = ol_osd_module_new ();
+  //module = ol_osd_module_new ();
+  module = ol_classic_module_new ();
+  
   ol_trayicon_inital ();
   ol_keybinding_init ();
   ol_lrc_fetch_init ();
@@ -332,7 +340,8 @@ main (int argc, char **argv)
   g_timeout_add (REFRESH_INTERVAL, refresh_music_info, NULL);
   gtk_main ();
   ol_player_free ();
-  ol_osd_module_destroy (module);
+  //ol_osd_module_destroy (module);
+  ol_classic_module_destroy (module);
   module = NULL;
   return 0;
 }
