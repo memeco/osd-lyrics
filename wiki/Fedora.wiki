@@ -1,5 +1,5 @@
 #summary Install instructions for Fedora users
-
+<wiki:toc max_depth="2" />
 = Install from repository =
 *Note: Only Fedora 12 supported. If you are using an older version of Fedora, please refer _Install from RPM files_.
 
