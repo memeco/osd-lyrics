@@ -272,7 +272,7 @@ ol_classic_window_paint_lyrics (OlClassicWindow *classic, cairo_t *cr)
   cairo_fill(cr);
   /*clip代码*/
   cairo_set_source_rgb(cr, 0, 1, 0.5);
-  cairo_rectangle(cr,100,20,400,180);
+  cairo_rectangle(cr,100,20,400,160);
   cairo_clip (cr);
   
   /* paint the lyric */
@@ -299,7 +299,7 @@ ol_classic_window_paint_lyrics (OlClassicWindow *classic, cairo_t *cr)
          cairo_set_source_rgb(cr, 0.1, 0.5, 0.1);
          /* fprintf (stderr, "per:%lf, y:%d\n", percentage, (int)(50+y*(1-percentage)+i*20)); */
        }
-       if (i == 7&&percentage>0.60)
+       if (i == 5&&percentage>0.60)
        {
          cairo_set_source_rgb(cr, 0.1, 0.5, 0.1);
        }
@@ -328,7 +328,7 @@ ol_classic_window_set_lyric (OlClassicWindow *classic, const LrcInfo *lyric)
   else
     classic->current_lyric_id = -1;
   ol_classic_window_set_paint_lyrics (classic);
-  ol_classic_window_paint(classic);
+  //ol_classic_window_paint(classic);
 
 }
 
@@ -362,7 +362,7 @@ ol_classic_window_set_paint_lyrics (OlClassicWindow *classic)
     for (i = 0; i<9; i++)
       classic->paint_lyrics[i] = "";
   }
-  else if (5+id < 9)
+  else if (5+id <= 9)
   {
     int i;
     for (i = 4;i<9;i++)
@@ -379,7 +379,7 @@ ol_classic_window_set_paint_lyrics (OlClassicWindow *classic)
       }
     }
   }
-  else if(5+id>=9)
+  else if(5+id>9&&id<=ol_lrc_parser_get_most_id_of_list(classic->lrc_file)-4)
   {
     int i = 0;
     for (i = 0; i < 9; i++)
@@ -397,6 +397,10 @@ ol_classic_window_set_paint_lyrics (OlClassicWindow *classic)
       {
         info = ol_lrc_parser_get_lyric_by_id (classic->lrc_file, (id-4+i));
         classic->paint_lyrics[i] = ol_lrc_parser_get_lyric_text (info);
+      }
+      else
+      {
+        classic->paint_lyrics[i] = "";
       }
     }
   }
