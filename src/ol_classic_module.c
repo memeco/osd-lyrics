@@ -4,10 +4,12 @@ static void
 ol_classic_module_init_classic (OlClassicModule *module)
 {
   module->classic = OL_CLASSIC_WINDOW (ol_classic_window_new ());
+  g_object_ref_sink(module->classic);
   if (module->classic == NULL)
   {
     return;
   }
+  gtk_widget_show(module->classic);
 }
 
 OlClassicModule*
@@ -24,6 +26,8 @@ ol_classic_module_new ()
 void
 ol_classic_module_destroy (OlClassicModule *module)
 {
+  if (module == NULL)
+    return;
   if (module->classic != NULL)
     g_object_unref (module->classic);
   ol_music_info_finalize (&module->music_info);
@@ -33,6 +37,8 @@ ol_classic_module_destroy (OlClassicModule *module)
 void
 ol_classic_module_set_music_info (OlClassicModule *module, OlMusicInfo *music_info)
 {
+  if (module == NULL)
+    return;
   g_return_if_fail (music_info != NULL);
   ol_music_info_copy (&module->music_info, music_info);
   if (module->classic != NULL)
@@ -44,7 +50,8 @@ ol_classic_module_set_music_info (OlClassicModule *module, OlMusicInfo *music_in
 void
 ol_classic_module_set_played_time (OlClassicModule *module, int played_time)
 {
-
+  if (module == NULL)
+    return;
   if (module->lrc_file != NULL && module->classic != NULL)
   {
     char current_lrc[1024];
@@ -63,7 +70,7 @@ ol_classic_module_set_played_time (OlClassicModule *module, int played_time)
 
     if (lyric_id == -1)
     {
-      ol_classic_module_set_lrc(module, NULL);
+      ol_classic_window_set_lyric(module, NULL);
       return;
     }
     else
@@ -79,7 +86,7 @@ ol_classic_module_set_played_time (OlClassicModule *module, int played_time)
     
   }
   else
-    ol_classic_module_set_lrc (module->classic, NULL);
+    ol_classic_window_set_lyric (module->classic, NULL);
 }
 
 
@@ -87,6 +94,8 @@ ol_classic_module_set_played_time (OlClassicModule *module, int played_time)
 void
 ol_classic_module_set_lrc (OlClassicModule *module, LrcQueue *lrc_file)
 {
+  if (module == NULL)
+    return;
   module->lrc_file = lrc_file;
   if(module->classic == NULL)
   {
@@ -99,5 +108,7 @@ ol_classic_module_set_lrc (OlClassicModule *module, LrcQueue *lrc_file)
 void
 ol_classic_module_set_duration (OlClassicModule *module, int duration)
 {
+  if (module == NULL)
+    return;
   module->duration = duration;
 }
