@@ -29,7 +29,7 @@ Extract it into a directory
 {{{
 tar zxvf osdlyrics-a.b.yyyymmdd.tar.gz
 cd osdlyrics-a.b.yyyymmdd
-}}
+}}}
 Where a.b.yyyymmdd is the version of OSD Lyrics you download.
 
 = Build and install =
