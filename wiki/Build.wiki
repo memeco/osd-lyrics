@@ -6,23 +6,33 @@
  * libgtk2.0-dev
  * libdbus-glib-1-dev
  * libglade2-dev
- * libcurl3-dev
+n * libcurl3-dev
+ * libmpd-dev (this is unecessary if you configure with --disable-mpd option)
 == For rpm systems ==
  * gtk2-devel
  * dbus-glib-devel
  * libcurl-devel
  * libglade2-devel
+ * libmpd-devel (this is unecessary if you configure with --disable-mpd option)
 
 = Download sources =
+You have two ways to obtain the latest source codes.
 == Check out from svn ==
 {{{
 svn checkout http://osd-lyrics.googlecode.com/svn/trunk/ osd-lyrics
+cd osd-lyrics
 }}}
 == Download source package ==
 You can get source packages from [http://code.google.com/p/osd-lyrics/downloads/list]
+Extract it into a directory
+{{{
+tar zxvf osdlyrics-a.b.yyyymmdd.tar.gz
+cd osdlyrics-a.b.yyyymmdd
+}}
+Where a.b.yyyymmdd is the version of OSD Lyrics you download.
 
 = Build and install =
-Make sure you are in the source directory, which is typically named osd-lyrics.
+Make sure you are in the source directory.
 Then follow the instructions:
 {{{
 aclocal
@@ -32,3 +42,9 @@ automake --add-missing
 make
 sudo make-install
 }}}
+By ./configure, you can append some options after it. The available options you may be insterested in are list below. To get all available options, just ./configure --help
+
+== Available Options ==
+You can use following options when invoking configure script
+ * --disable-mpd: Disables MPD support. If you don't use MPD, you may be happy with it. Disabling MPD support also frees you from having dev package of libmpd installed.
+ * --enable-amarok1: Enable Amarok 1.4 support. Amarok 1.4 is no longer supported by default.

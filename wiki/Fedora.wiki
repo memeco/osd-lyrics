@@ -6,7 +6,8 @@
 == Add the repository ==
 Download [http://dl.dropbox.com/u/1352061/liangsuilong.repo repository file] to /etc/yum.repos.d/
 {{{
-sudo wget http://dl.dropbox.com/u/1352061/liangsuilong.repo -P /etc/yum.repos.d/
+su
+wget http://dl.dropbox.com/u/1352061/liangsuilong.repo -P /etc/yum.repos.d/
 }}}
 
 If the link above is unavailable, you can create the file by yourself. Just create a file /etc/yum.repos.d/liangsuilong.repo.
@@ -23,7 +24,7 @@ gpgcheck=0
 
 Now you can install OSD Lyrics with yum easily :)
 {{{
-sudo yum install osd-lyrics
+yum install osd-lyrics
 }}}
 
 = Install from RMP files =
