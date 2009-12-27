@@ -11,6 +11,7 @@ wget http://dl.dropbox.com/u/1352061/liangsuilong.repo -P /etc/yum.repos.d/
 }}}
 
 If the link above is unavailable, you can create the file by yourself. Just create a file /etc/yum.repos.d/liangsuilong.repo.
+
 Write down the following in the file and save.
 {{{
 [liangsuilong]

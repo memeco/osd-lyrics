@@ -24,6 +24,7 @@ cd osd-lyrics
 }}}
 == Download source package ==
 You can get source packages from [http://code.google.com/p/osd-lyrics/downloads/list]
+
 Extract it into a directory
 {{{
 tar zxvf osdlyrics-a.b.yyyymmdd.tar.gz
@@ -33,6 +34,7 @@ Where a.b.yyyymmdd is the version of OSD Lyrics you download.
 
 = Build and install =
 Make sure you are in the source directory.
+
 Then follow the instructions:
 {{{
 aclocal
