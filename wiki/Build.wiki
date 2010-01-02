@@ -42,7 +42,7 @@ autoconf
 automake --add-missing
 ./configure
 make
-sudo make-install
+sudo make install
 }}}
 By ./configure, you can append some options after it. The available options you may be insterested in are list below. To get all available options, just ./configure --help
 
