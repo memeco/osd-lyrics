@@ -1,0 +1,18 @@
+#summary List of compatible players
+
+|| *Player*                 || *Get info*         || *Get status* || *Play* || *Pause* || *Stop* || *Previous* || *Next* || *Seek* ||
+|| Amarok 1.4<sup>[1]</sup> || Yes (without URI)  || No           || No     || No      || Yes    || No         || No     || No     ||
+|| Amarok 2.x               || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Audacious                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Banshee                  || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Exaile 0.2               || Yes (without URI)  || Yes          || No     || No      || No     || No         || No     || No     ||
+|| Exaile 0.3               || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
+|| MPD<sup>[2]</sup>        || Yes (without URI)  || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Rhythmbox                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Songbird<sup>[3]</sup>   || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+#|| XMMS 2<sup>[4]</sup>     || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+
+[1]. Amarok 1.4 support is disabled by default, to enable it, you must pass --enable-amarok1 in the configure phase. See [Build#Available_Options build instructions] for details.
+[2]. MPD support requires libmpd installed.
+[3]. Songbird support requires its [http://addons.songbirdnest.com/addon/1626 MPRIS extension]
+#[4]. XMMS 2
