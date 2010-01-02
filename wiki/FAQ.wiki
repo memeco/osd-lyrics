@@ -17,3 +17,6 @@ Right-click the trayicon of OSD Lyrics, uncheck ``Lock''. After that you can mov
 The default path of the downloaded lyrics is the first path in the Path option. The default filename format is the pattern of the top entry in Filename option. Both option are in the Lyric Location tab in the preference window.
 
 In the old version of OSD Lyrics, all lyrics are located in ~/.lyrics, in the format of ``artist - title.lrc''.
+
+== Why I can search lyrics, but fail downloading them ==
+It's a bug. If the first directory matched to download lyrics to doesn't exists, the the lyrics are failed to be downloaded. Just make the directory of the first directory in lyrics path option will work. Generally, it's "~/.lyrics" that you need to make.
