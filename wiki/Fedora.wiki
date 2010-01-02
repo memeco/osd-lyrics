@@ -28,7 +28,7 @@ yum makecache && yum install osd-lyrics
 }}}
 
 = Install from RMP files =
-You can find RPM files at http://liangsuilong.fedorapeople.org/osd-lyrics/
+You can find RPM files at http://liangsuilong.fedorapeople.org/yum/12/i386/
 
 = Install from source code =
 Please refer [Build build instructions].
