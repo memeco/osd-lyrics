@@ -8,14 +8,16 @@
  * libglade2-dev
  * libcurl3-dev
  * libmpd-dev (使用 --disable-mpd 选项编译时不需要)
+ * libxmmsclient-dev (使用 --disable-xmms2 选项编译时不需要)
 == 使用rpm的系统 ==
  * gtk2-devel
  * dbus-glib-devel
  * libcurl-devel
  * libglade2-devel
  * libmpd-devel (使用 --disable-mpd 选项编译时不需要)
+ * xmms2-devel (使用 --disable-mpd 选项编译时不需要)
 
-o= 下载源代码 =
+= 下载源代码 =
 你可以使用以下两种方法来获取最新的源代码：
 == 从svn库中获取 ==
 {{{
@@ -47,4 +49,5 @@ sudo make-install
 == 可用选项 ==
 你可以在执行configure脚本时加上如下选项
  * --disable-mpd: 禁用MPD支持。如果你不使用MPD，那么同这个选项准没错。禁用MPD支持后可以不再依赖libmpd库。
+ * --disable-xmms2: 禁用XMMS2支持。与MPD支持类似。
  * --enable-amarok1: 启用Amarok 1.4支持。现在默认不再对Amarok 1.4进行支持。

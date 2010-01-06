@@ -6,14 +6,16 @@
  * libgtk2.0-dev
  * libdbus-glib-1-dev
  * libglade2-dev
-n * libcurl3-dev
+ * libcurl3-dev
  * libmpd-dev (this is unecessary if you configure with --disable-mpd option)
+ * libxmmsclient-dev (this is unecessary if you configure with --disable-xmms2 option)
 == For rpm systems ==
  * gtk2-devel
  * dbus-glib-devel
  * libcurl-devel
  * libglade2-devel
  * libmpd-devel (this is unecessary if you configure with --disable-mpd option)
+ * xmms2-devel (this is unecessary if you configure with --disable-xmms2 option)
 
 = Download sources =
 You have two ways to obtain the latest source codes.
@@ -49,4 +51,5 @@ By ./configure, you can append some options after it. The available options you 
 == Available Options ==
 You can use following options when invoking configure script
  * --disable-mpd: Disables MPD support. If you don't use MPD, you may be happy with it. Disabling MPD support also frees you from having dev package of libmpd installed.
+ * --disable-xmms2: Disables XMMS2 support. Similar to MPD support.
  * --enable-amarok1: Enable Amarok 1.4 support. Amarok 1.4 is no longer supported by default.

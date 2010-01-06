@@ -19,4 +19,4 @@ The default path of the downloaded lyrics is the first path in the Path option. 
 In the old version of OSD Lyrics, all lyrics are located in ~/.lyrics, in the format of ``artist - title.lrc''.
 
 == Why I can search lyrics, but fail downloading them ==
-It's a bug. If the first directory matched to download lyrics to doesn't exists, the the lyrics are failed to be downloaded. Just make the directory of the first directory in lyrics path option will work. Generally, it's "~/.lyrics" that you need to make.
+It's a bug before version 0.2.20100106. If the first directory matched to download lyrics to doesn't exists, the the lyrics are failed to be downloaded. Just make the directory of the first directory in lyrics path option will work. Generally, it's "~/.lyrics" that you need to make.
