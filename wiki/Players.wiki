@@ -8,14 +8,17 @@
 || Exaile 0.2                || Yes (without URI)  || Yes          || No     || No      || No     || No         || No     || No     ||
 || Exaile 0.3                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
 || MPD<sup>`[2]`</sup>       || Yes (without URI)  || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| MOC<sup>`[3]`</sup>       || Yes                || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
 || Rhythmbox                 || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
-|| Songbird<sup>`[3]`</sup>  || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
-|| XMMS2<sup>`[4]`</sup>     || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Songbird<sup>`[4]`</sup>  || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| XMMS2<sup>`[5]`</sup>     || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 
 `[1]`. Amarok 1.4 support is disabled by default, to enable it, you must pass --enable-amarok1 in the configure phase. See [Build#Available_Options build instructions] for details.
 
 `[2]`. MPD support requires libmpd installed.
 
-`[3]`. Songbird support requires its [http://addons.songbirdnest.com/addon/1626 MPRIS extension]
+`[3]`. MOC support eats a lot of CPU resource due to cost the of pipe and fork. Its stop feature is disables because of OSD Lyrics won't respond when MOC stops.
 
-`[4]`. XMMS2 support requires xmms-client installed.
+`[4]`. Songbird support requires its [http://addons.songbirdnest.com/addon/1626 MPRIS extension]
+
+`[5]`. XMMS2 support requires xmms-client installed.
