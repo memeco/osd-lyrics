@@ -9,6 +9,7 @@
 || Exaile 0.3                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
 || MPD<sup>`[2]`</sup>       || Yes (without URI)  || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || MOC<sup>`[3]`</sup>       || Yes                || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
+|| Quod Libet                || Yes (without URI)  || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
 || Rhythmbox                 || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || Songbird<sup>`[4]`</sup>  || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || XMMS2<sup>`[5]`</sup>     || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
