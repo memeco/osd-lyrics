@@ -5,7 +5,6 @@
 == 使用deb的系统 ==
  * libgtk2.0-dev
  * libdbus-glib-1-dev
- * libglade2-dev
  * libcurl3-dev
  * libmpd-dev (使用 --disable-mpd 选项编译时不需要)
  * libxmmsclient-dev (使用 --disable-xmms2 选项编译时不需要)
@@ -13,7 +12,6 @@
  * gtk2-devel
  * dbus-glib-devel
  * libcurl-devel
- * libglade2-devel
  * libmpd-devel (使用 --disable-mpd 选项编译时不需要)
  * xmms2-devel (使用 --disable-mpd 选项编译时不需要)
 
