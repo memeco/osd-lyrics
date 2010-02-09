@@ -1,0 +1,103 @@
+#include <libnotify/notify.h>
+#include "config.h"
+#include "ol_notify.h"
+#include "ol_intl.h"
+#include "ol_debug.h"
+
+static const char *UNKNOWN_TITLE = N_("Unknown title");
+static const char *UNKNOWN_ARTIST = N_("Unknown artist");
+static const char *INFO_FORMAT = "%s";
+static const char *INFO_FORMAT_ALBUM = "%s\n<i>%s</i>";
+static const int DEFAULT_TIMEOUT = -1;
+
+static gboolean inited = FALSE;
+static NotifyNotification *notify = NULL;
+
+static gboolean _init ();
+static NotifyNotification *_get_notify (const char *summary,
+                                        const char *body,
+                                        const char *icon,
+                                        GtkWidget *attach);
+
+static NotifyNotification *
+_get_notify (const char *summary,
+             const char *body,
+             const char *icon,
+             GtkWidget *attach)
+{
+  if (notify == NULL)
+  {
+    notify = notify_notification_new (summary,
+                                      body,
+                                      icon,
+                                      attach);
+  }
+  else
+  {
+    notify_notification_update (notify,
+                                summary,
+                                body,
+                                icon);
+  }
+}
+
+static gboolean
+_init ()
+{
+  if (!notify_is_initted())
+    notify_init (PACKAGE_NAME);
+  
+  if (notify == NULL)
+    ol_error ("Notify init failed");
+  return notify != NULL;
+}
+
+void
+ol_notify_init ()
+{
+  _init ();
+}
+
+void
+ol_notify_unload ()
+{
+  if (notify != NULL)
+    g_object_unref (notify);
+  notify_uninit ();
+}
+
+void
+ol_notify_music_change (OlMusicInfo *info)
+{
+  ol_assert (info != NULL);
+  if (!_init ())
+  {
+    return;
+  }
+  const char *title = ol_music_info_get_title (info);
+  const char *artist = ol_music_info_get_artist (info);
+  if (title == NULL && artist == NULL)
+    return;
+  if (title == NULL)
+    title = _(UNKNOWN_TITLE);
+  if (artist == NULL)
+    artist = _(UNKNOWN_ARTIST);
+  const char *album = ol_music_info_get_album (info);
+  char *body = NULL;
+  if (album == NULL)
+  {
+    body = g_strdup_printf (INFO_FORMAT,
+                            artist);
+  }
+  else
+  {
+    body = g_strdup_printf (INFO_FORMAT_ALBUM,
+                            artist,
+                            album);
+  }
+  NotifyNotification *music_notify = _get_notify (title, body, NULL, NULL);
+  notify_notification_set_timeout (music_notify,
+                                   DEFAULT_TIMEOUT);
+  notify_notification_show (notify, NULL);
+  g_free (body);
+}
