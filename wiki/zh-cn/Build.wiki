@@ -1,0 +1,51 @@
+#summary 编译说明
+#labels Featured
+
+= 信赖软件包 =
+== 使用deb的系统 ==
+ * libgtk2.0-dev
+ * libdbus-glib-1-dev
+ * libcurl3-dev
+ * libmpd-dev (使用 --disable-mpd 选项编译时不需要)
+ * libxmmsclient-dev (使用 --disable-xmms2 选项编译时不需要)
+== 使用rpm的系统 ==
+ * gtk2-devel
+ * dbus-glib-devel
+ * libcurl-devel
+ * libmpd-devel (使用 --disable-mpd 选项编译时不需要)
+ * xmms2-devel (使用 --disable-mpd 选项编译时不需要)
+
+= 下载源代码 =
+你可以使用以下两种方法来获取最新的源代码：
+== 从svn库中获取 ==
+{{{
+svn checkout http://osd-lyrics.googlecode.com/svn/trunk/ osd-lyrics
+cd osd-lyrics
+}}}
+== 下载源码包 ==
+你可以在[http://code.google.com/p/osd-lyrics/downloads/list]下载源码包。
+下载后解压到一个目录：
+{{{
+tar zxvf osdlyrics-a.b.yyyymmdd.tar.gz
+cd osdlyrics-a.b.yyyymmdd
+}}
+其中a.b.yyyymmdd是你所下载的OSD Lyrics版本号。
+
+= 编译并安装 =
+确保你在源代码目录下。
+执行以下指令安装：
+{{{
+aclocal
+autoconf
+automake --add-missing
+./configure
+make
+sudo make-install
+}}}
+在执行./configure时，你可以在后面加上一些选项。下面列出了你可能会感兴趣的选项。要查看所有可用的选项，执行./configure --help
+
+== 可用选项 ==
+你可以在执行configure脚本时加上如下选项
+ * --disable-mpd: 禁用MPD支持。如果你不使用MPD，那么同这个选项准没错。禁用MPD支持后可以不再依赖libmpd库。
+ * --disable-xmms2: 禁用XMMS2支持。与MPD支持类似。
+ * --enable-amarok1: 启用Amarok 1.4支持。现在默认不再对Amarok 1.4进行支持。
