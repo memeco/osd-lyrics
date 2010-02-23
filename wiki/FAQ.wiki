@@ -1,4 +1,5 @@
 #summary Frequently Asked Questions
+#labels Featured
 = Installation =
 == How to install OSD Lyrics ==
 For Ubuntu users, please read [Ubuntu].
