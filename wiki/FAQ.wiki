@@ -19,5 +19,19 @@ The default path of the downloaded lyrics is the first path in the Path option. 
 
 In the old version of OSD Lyrics, all lyrics are located in ~/.lyrics, in the format of ``artist - title.lrc''.
 
+= Troubleshooting =
+
 == Why I can search lyrics, but fail downloading them ==
 It's a bug before version 0.2.20100106. If the first directory matched to download lyrics to doesn't exists, the the lyrics are failed to be downloaded. Just make the directory of the first directory in lyrics path option will work. Generally, it's "~/.lyrics" that you need to make.
+
+== Can not display tray icon ==
+Try refreshing the icon cache:
+{{{
+sudo gtk-update-icon-cache /usr/share/icons/hicolor
+}}}
+
+== The text is aliasing ==
+You need to use a compositing window manager to get the best visual effect. If you would like to stick with metacity, which is the default window manager of GNOME, you need to enable its composition feature by following the instruction below:
+ * Install and launch gconf-editor
+ * Select /apps/metacity/general in the left panel
+ * Check the compositing_manager box in the right panel
