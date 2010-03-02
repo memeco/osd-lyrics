@@ -1,5 +1,5 @@
-#summary Frequently Asked Questions
 #labels Featured
+<wiki:toc max_depth="2" />
 = Installation =
 == How to install OSD Lyrics ==
 For Ubuntu users, please read [Ubuntu].
