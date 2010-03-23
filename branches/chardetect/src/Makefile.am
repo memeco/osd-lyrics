@@ -10,11 +10,23 @@ INCLUDES = \
 	@MPD_CFLAGS@ \
 	@XMMS2_CFLAGS@ \
 	@NOTIFY_CFLAGS@ \
-	@SQLITE_CFLAGS@
+	@SQLITE_CFLAGS@ \
+	$(top_srcdir)/lib/chardetect/include
 AM_CPPFLAGS = \
 	-DDATADIR='"$(datadir)"' \
 	-DICONDIR='"$(OL_ICONDIR)"' \
 	-DGUIDIR='"$(OL_GUIDIR)"' 
+AM_LDFLAGS = \
+	-L$(top_srcdir)/lib/chardetect
+LDADD = \
+	@GTK2_LIBS@ \
+	@DBUS_GLIB_LIBS@ \
+	@CURL_LIBS@ \
+	@MPD_LIBS@ \
+	@XMMS2_LIBS@ \
+	@NOTIFY_LIBS@ \
+	@SQLITE_LIBS@ \
+	$(top_srcdir)/lib/chardetect/chardetect.a
 
 osd_lyrics_SOURCES = \
 	ol_main.c \
@@ -75,15 +87,7 @@ osd_lyrics_SOURCES = \
 	ol_lrclib.c
 
 #osd_lyrics_CXXFLAGS = @GTK2_CFLAGS@
-osd_lyrics_LDADD = \
-	@GTK2_LIBS@ \
-	@DBUS_GLIB_LIBS@ \
-	@CURL_LIBS@ \
-	@MPD_LIBS@ \
-	@XMMS2_LIBS@ \
-	@NOTIFY_LIBS@ \
-	@SQLITE_LIBS@
-osd_lyrics_LDFLAGS = -L$(top_srcdir)/src/
+
 
 # Librarys
 
