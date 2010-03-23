@@ -3,7 +3,7 @@
 
 #include <glib.h>
 #include "ol_music_info.h"
-#include "ol_lrc_parser.h"
+#include "ol_lrc_file.h"
 
 
 gboolean ol_app_download_lyric (OlMusicInfo *music_info);

@@ -150,7 +150,7 @@ ol_app_assign_lrcfile (const OlMusicInfo *info,
   {
     if (lrc_file != NULL)
     {
-      ol_lrc_parser_free (lrc_file);
+      ol_lrc_queue_free (lrc_file);
       lrc_file = NULL;
     }
     if (filepath != NULL)

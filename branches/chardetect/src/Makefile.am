@@ -11,7 +11,7 @@ INCLUDES = \
 	@XMMS2_CFLAGS@ \
 	@NOTIFY_CFLAGS@ \
 	@SQLITE_CFLAGS@ \
-	$(top_srcdir)/lib/chardetect/include
+	-I$(top_srcdir)/lib/chardetect/include
 AM_CPPFLAGS = \
 	-DDATADIR='"$(datadir)"' \
 	-DICONDIR='"$(OL_ICONDIR)"' \
@@ -59,6 +59,7 @@ osd_lyrics_SOURCES = \
 	ol_utils_dcop.c \
 	ol_utils_cmdline.c \
 	ol_lrc_parser.c \
+	ol_lrc_file.c \
 	ol_lrc_utility.c \
 	ol_search_dialog.c \
 	ol_trayicon.c \
