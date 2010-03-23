@@ -22,6 +22,7 @@ AC_CONFIG_FILES([ po/Makefile.in
 	src/Makefile
 	src/tests/Makefile
 	data/Makefile
+	lib/Makefile
 ])
 
 #define paths

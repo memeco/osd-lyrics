@@ -1,3 +1,7 @@
+2010-03-23  Tiger Soldier  <tigersoldi@gmail.com>
+
+	* ADD: Charset detector library from pcmanx
+
 2010-03-22  Tiger Soldier  <tigersoldi@gmail.com>
 
 	* src/ol_osd_module.c: FIX: The bug that OSD Window never hides when is set to hidden is fixed
