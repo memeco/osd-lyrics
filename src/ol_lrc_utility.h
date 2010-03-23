@@ -1,7 +1,7 @@
 #ifndef __OL_LRC_UTILITY_H__
 #define __OL_LRC_UTILITY_H__
 
-#include "ol_lrc_parser.h"
+#include "ol_lrc_file.h"
 
 /** 
  * @brief Gets the lyric for the given time, and the playing progress of the lyric
