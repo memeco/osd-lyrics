@@ -35,3 +35,5 @@ clean:
 	rm -rf .libs
 
 check: all
+
+install: 
