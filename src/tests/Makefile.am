@@ -74,11 +74,12 @@ ol_lrc_parser_test_SOURCES = ol_lrc_parser_test.c \
 
 ol_lrc_parser_test_LDADD = \
 	$(top_srcdir)/lib/chardetect/chardetect.a \
-	@GTK2_LIBS@
+	@GTK2_LIBS@ \
+	-lstdc++
 
 
 ol_lrc_utility_test_SOURCES = ol_lrc_utility_test.c \
-	$(top_srcdir)/src/ol_lrc_parser.c \
+	$(top_srcdir)/src/ol_lrc_file.c \
 	$(top_srcdir)/src/ol_lrc_utility.c
 
 ol_lrc_fetch_test_SOURCES = ol_lrc_fetch_test.c \

@@ -1,5 +1,7 @@
 2010-03-24  Tiger Soldier  <tigersoldi@gmail.com>
 
+	* src/ol_lrc_parser.c: ADD: Charset detection and convertion of LRC Parser
+
 	* src/tests/ol_lrc_parser_test.c: ADD: Basic test for LRC Parser
 
 	* src/ol_lrc_parser.c: ADD: A new lexical parser of LRC files

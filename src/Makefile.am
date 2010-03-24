@@ -26,7 +26,8 @@ LDADD = \
 	@XMMS2_LIBS@ \
 	@NOTIFY_LIBS@ \
 	@SQLITE_LIBS@ \
-	$(top_srcdir)/lib/chardetect/chardetect.a
+	$(top_srcdir)/lib/chardetect/chardetect.a \
+	-lstdc++
 
 osd_lyrics_SOURCES = \
 	ol_main.c \

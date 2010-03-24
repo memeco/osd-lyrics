@@ -3,10 +3,13 @@
 #include <ctype.h>
 #include <glib.h>
 #include <unistd.h>
+#include <iconv.h>
 #include "ol_lrc_parser.h"
 #include "ol_utils.h"
 #include "chardetect.h"
 #include "ol_debug.h"
+
+#define CHARSET_LEN 20
 
 struct OlLrcParser
 {
@@ -14,7 +17,7 @@ struct OlLrcParser
   char *filename;
   size_t offset;
   size_t buflen;
-  chardet_t *charset;
+  char charset[CHARSET_LEN];
 };
 
 static void _free_text_token (struct OlLrcTextToken *token);
@@ -183,8 +186,42 @@ ol_lrc_parser_set_buffer (struct OlLrcParser *parser,
   }
   else
   {
-    parser->buflen = strlen (buffer);
-    parser->buffer = g_strdup (buffer);
+    chardet_t det;
+    chardet_create (&det);
+    size_t buflen = strlen (buffer);
+    chardet_handle_data (det, buffer, buflen);
+    chardet_data_end (det);
+    chardet_get_charset (det, parser->charset, CHARSET_LEN);
+    ol_debugf ("Charset is: %s\n", parser->charset);
+    chardet_destroy (det);
+    if (strlen (parser->charset) > 0)
+    {
+      char *inbuf = g_strdup (buffer);
+      char *outbuf = inbuf;
+      iconv_t cd = iconv_open ("utf8", parser->charset);
+      if (cd == (iconv_t) -1)
+      {
+        ol_errorf ("No supported charset\n");
+      }
+      else
+      {
+        size_t inlen = buflen;
+        size_t outlen = buflen * 2;
+        outbuf = g_new (char, outlen + 1);
+        char *in = inbuf, *out = outbuf;
+        outbuf[0] = '\0';
+        iconv (cd, &in, &inlen, &out, &outlen);
+        g_free (inbuf);
+        iconv_close (cd);
+      }
+      parser->buffer = outbuf;
+      parser->buflen = strlen (outbuf);
+    }
+    else
+    {
+      parser->buflen = strlen (buffer);
+      parser->buffer = g_strdup (buffer);
+    }
   }
   ol_lrc_parser_reset (parser);
 }

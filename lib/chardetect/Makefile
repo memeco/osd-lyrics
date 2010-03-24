@@ -34,3 +34,4 @@ clean:
 	rm -f *.o *.lo *.la *.so
 	rm -rf .libs
 
+check: all
