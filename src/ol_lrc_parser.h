@@ -7,7 +7,6 @@
  * To user the struct, you need to create an instance with
  * ol_lrc_parser_new or ol_lrc_parser_new_from file, and frees with
  * ol_lrc_parser_free
- * @return 
  */
 struct OlLrcParser;
 
@@ -15,7 +14,6 @@ struct OlLrcParser;
  * @brief Types of OlLrcToken
  * 
  * 
- * @return 
  */
 enum OlLrcTokenType {
   OL_LRC_TOKEN_TEXT = 0,        /**< Normal text token */
@@ -77,7 +75,9 @@ struct OlLrcParser *ol_lrc_parser_new_from_file (const char *filename);
 /** 
  * @brief Set the buffer of the parser.
  *
- * The parser will be reset to parse from the beginning
+ * The parser will be reset to parse from the beginning.
+ * The filename of the parser will be set to NULL
+ *
  * @param parser The LRC parser
  * @param buffer The content of the lyric
  */
@@ -125,5 +125,14 @@ enum OlLrcTokenType ol_lrc_token_get_type (union OlLrcToken *token);
  * @param token 
  */
 void ol_lrc_token_free (union OlLrcToken *token);
+
+/** 
+ * @brief Get the filename of the LRC file the parser uses
+ * 
+ * @param parser 
+ * 
+ * @return The full filename, may be NULL
+ */
+const char *ol_lrc_parser_get_filename (struct OlLrcParser *parser);
 
 #endif /* _OL_LRC_PARSER_H_ */

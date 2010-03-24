@@ -84,7 +84,7 @@ _parse_tag (struct OlLrcParser *parser,
       i -= 2;
       idx++;
     }
-    token->time = ((timepar[2]*60+timepar[1])*60+timepar[0])*1000;
+    token->time = ((timepar[2]*60+timepar[1])*60+timepar[0])*1000 + 0.5; /* round to int */
     return (union OlLrcToken*)token;
   }
   else
@@ -177,6 +177,11 @@ ol_lrc_parser_set_buffer (struct OlLrcParser *parser,
 {
   /* TODO: detect charset and convert to UTF-8 */
   ol_assert (parser != NULL);
+  if (parser->filename != NULL)
+  {
+    g_free (parser->filename);
+    parser->filename = NULL;
+  }
   if (parser->buffer != NULL)
     g_free (parser->buffer);
   if (buffer == NULL)
@@ -322,4 +327,11 @@ ol_lrc_token_get_type (union OlLrcToken *token)
     return token->type;
   else
     return OL_LRC_TOKEN_INVALID;
+}
+
+const char *
+ol_lrc_parser_get_filename (struct OlLrcParser *parser)
+{
+  ol_assert_ret (parser != NULL, NULL);
+  return parser->filename;
 }
