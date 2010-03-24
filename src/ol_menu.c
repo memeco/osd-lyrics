@@ -67,6 +67,7 @@ static void internal_adjust_lyric_offset (int offset_ms);
 static void
 internal_adjust_lyric_offset (int offset_ms)
 {
+  ol_log_func ();
   struct OlLrc *lrc = ol_app_get_current_lyric ();
   if (lrc == NULL)
     return;
@@ -84,6 +85,7 @@ ol_menu_advance_lrc (GtkWidget *widget, gpointer data)
 void
 ol_menu_delay_lrc (GtkWidget *widget, gpointer data)
 {
+  ol_log_func ();
   internal_adjust_lyric_offset (200);
 }
 

@@ -1,5 +1,7 @@
 2010-03-24  Tiger Soldier  <tigersoldi@gmail.com>
 
+	* data/dialogs.glade: FIX: The handler of advance/delay lrc offset in pop menu is fixed
+
 	* src/ol_lrc.c: ADD: Rewirte of LRC file module
 
 	* src/ol_lrc_parser.c: ADD: Charset detection and convertion of LRC Parser

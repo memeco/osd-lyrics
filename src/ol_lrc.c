@@ -230,7 +230,7 @@ ol_lrc_get_lyric_by_time (struct OlLrc *lrc,
                           double *percentage,
                           int *id)
 {
-  ol_log_func ();
+  /* ol_log_func (); */
   if (id != NULL)
     *id = -1;
   if (text != NULL)
@@ -278,6 +278,7 @@ ol_lrc_get_lyric_by_time (struct OlLrc *lrc,
 void
 ol_lrc_set_offset(struct OlLrc *lrc, int offset)
 {
+  ol_log_func ();
   ol_assert (lrc != NULL);
   lrc->offset = offset;
   char *key, *value;
