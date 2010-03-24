@@ -104,6 +104,9 @@ CPP = gcc -E
 CPPFLAGS = 
 CURL_CFLAGS =  
 CURL_LIBS = -lcurl  
+CXX = g++
+CXXDEPMODE = depmode=gcc3
+CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DBUS_GLIB_CFLAGS = -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include  
 DBUS_GLIB_LIBS = -L/lib -ldbus-glib-1 -ldbus-1 -lpthread -lrt -lgobject-2.0 -lglib-2.0  
@@ -175,6 +178,7 @@ abs_srcdir = /home/tigersoldier/programs/osd-lyrics/chardetect/lib
 abs_top_builddir = /home/tigersoldier/programs/osd-lyrics/chardetect
 abs_top_srcdir = /home/tigersoldier/programs/osd-lyrics/chardetect
 ac_ct_CC = gcc
+ac_ct_CXX = g++
 am__include = include
 am__leading_dot = .
 am__quote = 

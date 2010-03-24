@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "ol_lrc_parser.h"
 
-const char FILENAME[] = "lrc_basic.lrc";
+const char FILENAME[] = "lrc_gbk.lrc";
 
 void print_token (union OlLrcToken *token)
 {
