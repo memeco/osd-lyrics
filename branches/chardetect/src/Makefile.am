@@ -60,8 +60,7 @@ osd_lyrics_SOURCES = \
 	ol_utils_dcop.c \
 	ol_utils_cmdline.c \
 	ol_lrc_parser.c \
-	ol_lrc_file.c \
-	ol_lrc_utility.c \
+	ol_lrc.c \
 	ol_search_dialog.c \
 	ol_trayicon.c \
 	ol_menu.c \

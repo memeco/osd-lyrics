@@ -2,7 +2,7 @@ check_PROGRAMS = \
 	ol_osd_test \
 	ol_player_test\
 	ol_lrc_parser_test\
-	ol_lrc_utility_test \
+	ol_lrc_test \
 	ol_lrc_fetch_test \
 	ol_config_test \
 	ol_color_test \
@@ -77,10 +77,15 @@ ol_lrc_parser_test_LDADD = \
 	@GTK2_LIBS@ \
 	-lstdc++
 
+ol_lrc_test_SOURCES = ol_lrc_test.c \
+	$(top_srcdir)/src/ol_lrc.c \
+	$(top_srcdir)/src/ol_utils.c \
+	$(top_srcdir)/src/ol_lrc_parser.c 
 
-ol_lrc_utility_test_SOURCES = ol_lrc_utility_test.c \
-	$(top_srcdir)/src/ol_lrc_file.c \
-	$(top_srcdir)/src/ol_lrc_utility.c
+ol_lrc_test_LDADD = \
+	$(top_srcdir)/lib/chardetect/chardetect.a \
+	@GTK2_LIBS@ \
+	-lstdc++
 
 ol_lrc_fetch_test_SOURCES = ol_lrc_fetch_test.c \
 	$(top_srcdir)/src/ol_lrc_fetch.c \
