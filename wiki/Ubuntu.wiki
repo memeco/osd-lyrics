@@ -1,8 +1,20 @@
 #summary Install instruction for Ubuntu users
 #labels Featured,Phase-Deploy
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="2" />
 = Install from PPA (recommend) =
+== Ubuntu 9.10 or later ==
+Import the PPA repository:
+{{{
+sudo add-apt-repository ppa:osd-lyrics/ppa
+}}}
 
+Update & install:
+{{{
+sudo apt-get update
+sudo apt-get install osdlyrics
+}}}
+
+== Ubuntu 9.04 or older ==
 Edit your apt source:
 {{{
 sudo gedit /etc/apt/sources.list
@@ -19,12 +31,6 @@ Ubuntu 9.04 (Jaunty):
 {{{
 deb http://ppa.launchpad.net/osd-lyrics/ppa/ubuntu jaunty main 
 deb-src http://ppa.launchpad.net/osd-lyrics/ppa/ubuntu jaunty main
-}}}
-
-Ubuntu 9.10 (Karmic):
-{{{
-deb http://ppa.launchpad.net/osd-lyrics/ppa/ubuntu karmic main 
-deb-src http://ppa.launchpad.net/osd-lyrics/ppa/ubuntu karmic main
 }}}
 
 Add signing key:
