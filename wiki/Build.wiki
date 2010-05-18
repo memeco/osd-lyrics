@@ -10,15 +10,16 @@
  * libcurl3-dev
  * libnotify-dev
  * libsqlite3-dev >= 3.3.0
- * libmpd-dev (this is unecessary if you configure with --disable-mpd option)
- * libxmmsclient-dev (this is unecessary if you configure with --disable-xmms2 option)
+ * libmpd-dev (this is unnecessary if you configure with --disable-mpd option)
+ * libxmmsclient-dev (this is unnecessary if you configure with --disable-xmms2 option)
+ * libappindicator-dev (Optional for Ubuntu 10.04 or later)
 == For rpm systems ==
  * gtk2-devel >= 2.12.0
  * dbus-glib-devel
  * libcurl-devel
  * libnotify-devel
- * libmpd-devel (this is unecessary if you configure with --disable-mpd option)
- * xmms2-devel (this is unecessary if you configure with --disable-xmms2 option)
+ * libmpd-devel (this is unnecessary if you configure with --disable-mpd option)
+ * xmms2-devel (this is unnecessary if you configure with --disable-xmms2 option)
 
 = Download sources =
 You have two ways to obtain the latest source codes.
