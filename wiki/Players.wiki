@@ -7,8 +7,10 @@
 || Banshee                   || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || Exaile 0.2                || Yes (without URI)  || Yes          || No     || No      || No     || No         || No     || No     ||
 || Exaile 0.3                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
+|| Juk                        || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No    ||
 || MPD<sup>`[2]`</sup>       || Yes (without URI)  || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || MOC<sup>`[3]`</sup>       || Yes                || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
+|| Qmmp            || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || Quod Libet                || Yes (without URI)  || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
 || Rhythmbox                 || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || Songbird<sup>`[4]`</sup>  || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
