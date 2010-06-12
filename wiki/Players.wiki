@@ -1,5 +1,7 @@
 #summary List of compatible players
 
+If you want any player be supported, please fire an [[http://code.google.com/p/osd-lyrics/issues/list issue]] instead of leaving message here :)
+
 || *Player*                  || *Get info*         || *Get status* || *Play* || *Pause* || *Stop* || *Previous* || *Next* || *Seek* ||
 || Amarok 1.4<sup>`[1]`</sup>|| Yes (without URI)  || No           || No     || No      || Yes    || No         || No     || No     ||
 || Amarok 2.x                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
