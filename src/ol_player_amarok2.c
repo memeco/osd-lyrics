@@ -19,6 +19,7 @@ static OlPlayerMpris* ol_player_amarok2_get_mpris ();
 
 static gboolean ol_player_amarok2_get_music_info (OlMusicInfo *info);
 static gboolean ol_player_amarok2_get_played_time (int *played_time);
+static gboolean ol_player_amarok2_get_played_time_asyn (struct OlPlayer *player);
 static gboolean ol_player_amarok2_get_music_length (int *len);
 static gboolean ol_player_amarok2_get_activated ();
 static enum OlPlayerStatus ol_player_amarok2_get_status ();
@@ -60,7 +61,6 @@ ol_player_amarok2_get_music_info (OlMusicInfo *info)
   OlPlayerMpris *mpris = ol_player_amarok2_get_mpris ();
   return ol_player_mpris_get_music_info (mpris, info);
 }
-
 static gboolean
 ol_player_amarok2_get_played_time (int *played_time)
 {
@@ -87,6 +87,17 @@ ol_player_amarok2_get_played_time (int *played_time)
   }
   return TRUE;
 }
+
+static gboolean
+ol_player_amarok2_get_played_time_asyn (struct OlPlayer *player)
+{
+  OlPlayerMpris *mpris = ol_player_amarok2_get_mpris ();
+  int amarok_time = 0;
+  if (!ol_player_mpris_get_played_time (mpris, player))
+    return FALSE;
+  return TRUE;
+}
+
 
 static gboolean
 ol_player_amarok2_get_music_length (int *len)
@@ -178,7 +189,8 @@ ol_player_amarok2_get ()
   ol_player_set_cmd (controller, "amarok");
   controller->get_music_info = ol_player_amarok2_get_music_info;
   controller->get_activated = ol_player_amarok2_get_activated;
-  controller->get_played_time = ol_player_amarok2_get_played_time;
+  //controller->get_played_time = ol_player_amarok2_get_played_time;
+  controller->get_played_time_asyn = ol_player_amarok2_get_played_time_asyn;
   controller->get_music_length = ol_player_amarok2_get_music_length;
   controller->get_capacity = ol_player_amarok2_get_capacity;
   controller->get_status = ol_player_amarok2_get_status;
