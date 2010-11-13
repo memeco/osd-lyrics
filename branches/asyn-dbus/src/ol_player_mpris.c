@@ -123,6 +123,41 @@ ol_player_mpris_get_played_time (OlPlayerMpris *mpris, int *played_time)
   return TRUE;
 }
 
+void callback_func (DBusGProxy *proxy, DBusGProxyCall *call_id, struct OlPlayer *userdata)
+{
+    GError *error = NULL;
+    int played_time;
+    dbus_g_proxy_end_call (proxy,
+                           call_id,
+                           &error,
+                           G_TYPE_INT,
+                           &played_time,
+                           G_TYPE_INVALID);
+
+    if(error != NULL){ 
+        g_print("Error in method call : %s\n", error->message); 
+        g_error_free(error);
+        userdata->played_time = played_time;
+    }else{ 
+        g_print("SUCCESS,it is now %d\n", played_time);
+    }
+}
+gboolean
+ol_player_mpris_get_played_time_asyn (OlPlayerMpris *mpris, struct OlPlayer *player)
+{
+    if (mpris->proxy == NULL)
+        if (!ol_player_mpris_init_dbus (mpris))
+            return FALSE;
+    dbus_g_proxy_begin_call (mpris->proxy,
+                             GET_POSITION_METHOD,
+                             callback_func,
+                             player,
+                             NULL,
+                             G_TYPE_INVALID);
+    return TRUE;
+}
+
+
 gboolean
 ol_player_mpris_get_music_length (OlPlayerMpris *mpris, int *len)
 {
