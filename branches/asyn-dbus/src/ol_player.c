@@ -94,7 +94,6 @@ ol_player_get_active_player ()
   for (i = 0; i < players->len; i++)
   {
       struct OlPlayer *controller = g_array_index (players, struct OlPlayer*, i);
-      controller->played_time = 0;
       ol_debugf ("trying %s\n", controller->name);
       if (controller && controller->get_activated ())
       {
@@ -135,24 +134,15 @@ ol_player_get_activated (struct OlPlayer *player)
     return FALSE;
   return player->get_activated ();
 }
-
-gboolean
-ol_player_get_played_time_asyn (struct OlPlayer *player)
-{
-    if (player == NULL)
-        return FALSE;
-    gboolean s = player->get_played_time_asyn (player);
-    return s;
-}
-    
+   
 gboolean
 ol_player_get_played_time (struct OlPlayer *player, int *played_time)
 {
-  if (player == NULL)
-    return FALSE;
-  gboolean s = player->get_played_time (played_time);
-  ol_debugf ("played-time:%d\n", *played_time);
-  return s;
+    if (player == NULL)
+        return FALSE;
+    gboolean s = player->get_played_time (played_time);
+    ol_debugf ("played-time:%d\n", *played_time);
+    return s;
 }
 
 gboolean

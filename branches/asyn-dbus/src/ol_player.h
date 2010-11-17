@@ -27,14 +27,12 @@ enum OlPlayerCapacity {
 
 struct OlPlayer
 {
-    int played_time;
     const char * name;
     const char * cmdline;
     const char *(*get_icon_path) ();
     gboolean (*get_music_info) (OlMusicInfo *info);
     gboolean (*get_activated) ();
     gboolean (*get_played_time) (int *played_time);
-    gboolean (*get_played_time_asyn) (struct OlPlayer *player);
     gboolean (*get_music_length) (int *len);
     enum OlPlayerStatus (*get_status) ();
     int (*get_capacity) ();
@@ -173,17 +171,6 @@ gboolean ol_player_get_activated (struct OlPlayer *player);
  * @return TRUE if succeeded
  */
 gboolean ol_player_get_played_time (struct OlPlayer *player, int *played_time);
-
-/**
- * @brief Gets the elapsed time of the current music with asyn
- *
- * @param player The player to operate
- * @param played_time Return location of the elasped time, in millisecond
- *
- * @return TRUE if succeeded
- */
-gboolean ol_player_get_played_time_asyn (struct OlPlayer *player);
-
 
 /**
  * @brief Gets the duration of the current music

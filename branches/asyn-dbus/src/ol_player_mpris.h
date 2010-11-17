@@ -13,8 +13,10 @@
 
 typedef struct
 {
-  DBusGProxy *proxy;
-  gchar *name;
+    DBusGProxy *proxy;
+    DBusGProxyCall *call_id;
+    gchar *name;
+    int played_time;
 } OlPlayerMpris;
 
 /**
@@ -27,7 +29,6 @@ typedef struct
 OlPlayerMpris* ol_player_mpris_new (const char *service);
 gboolean ol_player_mpris_get_music_info (OlPlayerMpris *mpris, OlMusicInfo *info);
 gboolean ol_player_mpris_get_played_time (OlPlayerMpris *mpris, int *played_time);
-gboolean ol_player_mpris_get_played_time_asyn (OlPlayerMpris *mpris, struct OlPlayer *player);
 gboolean ol_player_mpris_get_music_length (OlPlayerMpris *mpris, int *len);
 gboolean ol_player_mpris_get_activated (OlPlayerMpris *mpris);
 int ol_player_mpris_get_capacity (OlPlayerMpris *mpris);
