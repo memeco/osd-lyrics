@@ -1,8 +1,11 @@
+2010-11-16  Sarlmol Apple  <sarlmolapple@gmail.com>
+
+	* src/ol_player_mpris.c (ol_player_mpris_get_played_time): CHANGE: Implement the asyn way of get_played_time
+
 2010-08-23  Sarlmol Apple  <sarlmolapple@gmail.com>
 
 	* src/ol_player_guayadeque02.c : ADD: Guayadeque0.2.5 support
 2010-07-10  Tiger Soldier  <tigersoldi@gmail.com>
-
 	* src/ol_player_muine.c : ADD: Muine support
 
 2010-06-09  Tiger Soldier  <tigersoldi@gmail.com>
