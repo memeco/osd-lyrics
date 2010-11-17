@@ -1,3 +1,7 @@
+2010-11-17  Sarlmol Apple  <sarlmolapple@gmail.com>
+
+	* src/ol_player_guayadeque02.c (ol_player_guayadeque02_get_played_time): ADD:emulates elapsed played_time for guayadequeue
+
 2010-11-16  Sarlmol Apple  <sarlmolapple@gmail.com>
 
 	* src/ol_player_mpris.c (ol_player_mpris_get_played_time): CHANGE: Implement the asyn way of get_played_time

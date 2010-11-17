@@ -138,7 +138,7 @@ void callback_func (DBusGProxy *proxy, DBusGProxyCall *call_id, OlPlayerMpris *m
         g_print("Error in method call : %s\n", error->message); 
         g_error_free(error);
     }else{ 
-        g_print("SUCCESS,it is now %d\n", mpris->played_time);
+        //g_print("SUCCESS,it is now %d\n", mpris->played_time);
         
     }
 }
