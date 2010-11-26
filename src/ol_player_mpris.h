@@ -13,10 +13,19 @@
 
 typedef struct
 {
-    DBusGProxy *proxy;
-    DBusGProxyCall *call_id;
-    gchar *name;
-    int played_time;
+  DBusGProxy *proxy;
+  DBusGProxyCall *call_id;
+  DBusGProxyCall *metadata_call_id;
+  DBusGProxyCall *status_call_id;
+  enum OlPlayerStatus status;
+  gchar *name;
+  int played_time;
+  gchar *title;
+  gchar *artist;
+  gchar *album;
+  gchar *uri;
+  int track_number;
+  int music_len;
 } OlPlayerMpris;
 
 /**
