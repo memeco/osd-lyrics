@@ -7,6 +7,7 @@ If you want any player be supported, please fire an [http://code.google.com/p/os
 || Amarok 2.x                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || Audacious                 || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || Banshee                   || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Clementine               || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
 || Exaile 0.2                || Yes (without URI)  || Yes          || No     || No      || No     || No         || No     || No     ||
 || Exaile 0.3                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
 || guayadeque 2.5                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
