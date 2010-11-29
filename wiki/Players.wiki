@@ -12,6 +12,7 @@ If you want any player be supported, please fire an [http://code.google.com/p/os
 || Exaile 0.3                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
 || guayadeque 2.5                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
 || Juk                       || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
+|| Listen               || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
 || MPD<sup>`[2]`</sup>       || Yes (without URI)  || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || MOC<sup>`[3]`</sup>       || Yes                || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
 || Muine                     || Yes                || Yes          || Yes    || Yes     || No     || Yes        || Yes    || Yes    ||
