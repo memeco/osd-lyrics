@@ -1,3 +1,7 @@
+2010-12-05  Sarlmol Apple  <sarlmolapple@gmail.com>
+
+	* src/ol_player_deciber.c: ADD:Supports Deciber Audio Player 1.05 or later.
+
 2010-11-29  Sarlmol Apple  <sarlmolapple@gmail.com>
 
 	* src/ol_player-mpris.c (osd_lyrics_SOURCES): MERGE:Merge asyn-dbus branch r390:r401 into trunk

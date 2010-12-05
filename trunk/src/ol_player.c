@@ -14,6 +14,7 @@
 #include "ol_player_audacious.h"
 #include "ol_player_songbird.h"
 #include "ol_player_clementine.h"
+#include "ol_player_deciber.h"
 #ifdef ENABLE_XMMS2
 #include "ol_player_xmms2.h"
 #endif  /* ENABLE_XMMS2 */
@@ -47,6 +48,7 @@ ol_player_init ()
     ol_player_register (ol_player_songbird_get ());
     ol_player_register (ol_player_clementine_get ());
     ol_player_register (ol_player_listen_get ());
+    ol_player_register (ol_player_deciber_get ());
 #ifdef ENABLE_XMMS2
     ol_player_register (ol_player_xmms2_get ());
 #endif  /* ENABLE_XMMS2 */
