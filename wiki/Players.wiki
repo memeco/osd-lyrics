@@ -12,6 +12,7 @@ If you want any player be supported, please fire an [http://code.google.com/p/os
 || Exaile 0.2                || Yes (without URI)  || Yes          || No     || No      || No     || No         || No     || No     ||
 || Exaile 0.3                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
 || Guayadeque 2.5                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
+|| Gmusicbrowser                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
 || Juk                       || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
 || Listen               || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
 || MPD<sup>`[2]`</sup>       || Yes (without URI)  || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
