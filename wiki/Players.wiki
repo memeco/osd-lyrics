@@ -22,6 +22,7 @@ If you want any player be supported, please fire an [http://code.google.com/p/os
 || Quod Libet                || Yes (without URI)  || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
 || Rhythmbox                 || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || Songbird<sup>`[4]`</sup>  || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| vlc<sup>`[7]`</sup>     || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 || XMMS2<sup>`[5]`</sup>     || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 
 `[1]`. Amarok 1.4 support is disabled by default, to enable it, you must pass --enable-amarok1 in the configure phase. See [Build#Available_Options build instructions] for details.
@@ -35,3 +36,5 @@ If you want any player be supported, please fire an [http://code.google.com/p/os
 `[5]`. XMMS2 support requires xmms-client installed.
 
 `[6]`. Require Deciber 1.05 or later
+
+`[7]`. 
