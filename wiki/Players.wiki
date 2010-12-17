@@ -37,4 +37,4 @@ If you want any player be supported, please fire an [http://code.google.com/p/os
 
 `[6]`. Require Deciber 1.05 or later
 
-`[7]`. Run with parameter:--control dbus"
+`[7]`. Run with parameter: "--control dbus"
