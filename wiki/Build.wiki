@@ -14,6 +14,8 @@
  * libxmmsclient-dev (this is unnecessary if you configure with --disable-xmms2 option)
  * libappindicator-dev (Optional for Ubuntu 10.04 or later, support for indicator-applet)
 == For rpm systems ==
+ * gcc gcc-c++
+ * autoconf automake libtool
  * gtk2-devel >= 2.12.0
  * dbus-glib-devel
  * libcurl-devel
