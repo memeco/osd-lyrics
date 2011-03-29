@@ -15,7 +15,7 @@
  * libappindicator-dev (Optional for Ubuntu 10.04 or later, support for indicator-applet)
 == For rpm systems ==
  * gcc gcc-c++
- * autoconf automake libtool
+ * autoconf automake libtool intltool
  * gtk2-devel >= 2.12.0
  * dbus-glib-devel
  * libcurl-devel
