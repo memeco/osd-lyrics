@@ -40,7 +40,6 @@ To test new feature or not-released bug fix, you need to checkout the develop br
 {{{
 git checkout --track origin/develop
 }}}
-}}}
 
 == Download source package ==
 You can get source packages from [http://code.google.com/p/osd-lyrics/downloads/list]
