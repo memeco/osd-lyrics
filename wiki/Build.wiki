@@ -57,6 +57,7 @@ Make sure you are in the source directory.
 Then follow the instructions:
 {{{
 aclocal
+autoheader
 autoconf
 automake --add-missing
 ./configure
