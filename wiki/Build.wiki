@@ -20,7 +20,7 @@
  * dbus-glib-devel
  * libcurl-devel
  * libnotify-devel
- * libsqlite3x-devel
+ * sqlite-devel
  * libmpd-devel (this is unnecessary if you configure with --disable-mpd option)
  * xmms2-devel (this is unnecessary if you configure with --disable-xmms2 option)
 
