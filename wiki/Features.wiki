@@ -1,0 +1,59 @@
+#summary Feature list
+
+=Compatible Media Players=
+
+To get a full list of supported functions of each player, see [Players list of compatible players]
+ * [http://osd-lyrics.googlecode.com/svn/images/amarok.png][http://amarok.kde.org/ Amarok] 2.0 and 1.4  (1.4 is disabled by default, use --enable-amarok1 to compile)
+ * [http://osd-lyrics.googlecode.com/svn/images/audacious2.png][http://audacious-media-player.org/ Audacious]
+ * [http://osd-lyrics.googlecode.com/svn/images/banshee.png][http://banshee-project.org/ Banshee]
+ * [http://osd-lyrics.googlecode.com/svn/images/clementine-24.png][http://www.clementine-player.org Clementine]<font color="red">^new!^</font>
+ * [http://osd-lyrics.googlecode.com/svn/images/deciber-audio-player-24.png][http://decibel.silent-blade.org/  Deciber-audio-player] (1.05 or later)<font color="red">^new!^</font>
+ * [http://osd-lyrics.googlecode.com/svn/images/exaile.png][http://exaile.org/ Exaile] (Both 0.2 and 0.3)
+ * [http://osd-lyrics.googlecode.com/svn/images/gmusicbrowser.png][http://http://gmusicbrowser.org/ Gmusicbrowser]<font color="red">^new!^</font>
+ * [http://osd-lyrics.googlecode.com/svn/images/guayadeque-24.png][http://sourceforge.net/projects/guayadeque/ Guayadeque]
+ * [http://osd-lyrics.googlecode.com/svn/images/juk.png][http://www.kde.org/applications/multimedia/juk/ JuK]
+ * [http://osd-lyrics.googlecode.com/svn/images/listen24*24.png][http://www.listen-project.org/ Listen] <font color="red">^new!^</font>
+ * [http://osd-lyrics.googlecode.com/svn/images/blank.png][http://moc.daper.net/ MOC] 2.5 (High CPU Usage)
+ * [http://osd-lyrics.googlecode.com/svn/images/muine.png][http://muine.gooeylinux.org/ Muine] 
+ * [http://osd-lyrics.googlecode.com/svn/images/qmmp.png][http://qmmp.ylsoftware.com/index_en.php Qmmp] (with MPRIS plugin enabled)
+ * [http://osd-lyrics.googlecode.com/svn/images/quodlibet.png][http://code.google.com/p/quodlibet/ Quod Libet]
+ * [http://osd-lyrics.googlecode.com/svn/images/mpd.png][http://mpd.wikia.com/ MPD]
+ * [http://osd-lyrics.googlecode.com/svn/images/rhythmbox.png][http://projects.gnome.org/rhythmbox/ Rhythmbox]
+ * [http://osd-lyrics.googlecode.com/svn/images/songbird.png][http://getsongbird.com/ Songbird] (with [http://addons.songbirdnest.com/addon/1626 MPRIS] extension installed)
+ * [http://osd-lyrics.googlecode.com/svn/images/vlc.png][http://www.videolan.org/vlc/ VLC](Run with parameter: "--control dbus")<font color="red">^new!^</font>
+ * [http://osd-lyrics.googlecode.com/svn/images/xmms2.png][http://wiki.xmms2.xmms.se/wiki/Main_Page XMMS2] 
+
+=Download Lyrics=
+
+OSD Lyrics can download lyrics from following web sites:
+ * [http://www.ttplayer.com/ ttPlayer]
+
+----
+
+=播放器支持=
+
+完整的播放器功能支持列表见[Players 播放器支持列表]
+ * [http://osd-lyrics.googlecode.com/svn/images/amarok.png][http://amarok.kde.org/ Amarok] 2.0 和 1.4 (1.4默认被禁用，要启用它需要在configure时使用--enable-amarok1参数)
+ * [http://osd-lyrics.googlecode.com/svn/images/audacious2.png][http://audacious-media-player.org/ Audacious]
+ * [http://osd-lyrics.googlecode.com/svn/images/banshee.png][http://banshee-project.org/ Banshee]
+ * [http://osd-lyrics.googlecode.com/svn/images/clementine-24.png][http://www.clementine-player.org Clementine]<font color="red">^新增!^</font>
+ * [http://osd-lyrics.googlecode.com/svn/images/deciber-audio-player-24.png][http://decibel.silent-blade.org/  Deciber-audio-player] (1.05 or later)<font color="red">^新增!^</font>
+ * [http://osd-lyrics.googlecode.com/svn/images/exaile.png][http://exaile.org/ Exaile] (支持0.2和0.3)
+ * [http://osd-lyrics.googlecode.com/svn/images/gmusicbrowser.png][http://http://gmusicbrowser.org/ Gmusicbrowser]<font color="red">^新增!^</font>
+ * [http://osd-lyrics.googlecode.com/svn/images/guayadeque-24.png][http://sourceforge.net/projects/guayadeque/ Guayadeque]
+ * [http://osd-lyrics.googlecode.com/svn/images/juk.png][http://www.kde.org/applications/multimedia/juk/ JuK]
+ * [http://osd-lyrics.googlecode.com/svn/images/listen24*24.png][http://www.listen-project.org/ Listen]<font color="red">^新增!^</font>
+ * [http://osd-lyrics.googlecode.com/svn/images/blank.png][http://moc.daper.net/ MOC] 2.5 (较耗 CPU)
+ * [http://osd-lyrics.googlecode.com/svn/images/muine.png][http://muine.gooeylinux.org/ Muine] 
+ * [http://osd-lyrics.googlecode.com/svn/images/qmmp.png][http://qmmp.ylsoftware.com/index_en.php Qmmp] (需启用MPRIS插件)
+ * [http://osd-lyrics.googlecode.com/svn/images/quodlibet.png][http://code.google.com/p/quodlibet/ Quod Libet]
+ * [http://osd-lyrics.googlecode.com/svn/images/mpd.png][http://mpd.wikia.com/ MPD]
+ * [http://osd-lyrics.googlecode.com/svn/images/rhythmbox.png][http://projects.gnome.org/rhythmbox/ Rhythmbox]
+ * [http://osd-lyrics.googlecode.com/svn/images/songbird.png][http://getsongbird.com/ Songbird] (需要安装[http://addons.songbirdnest.com/addon/1626 MPRIS]扩展)
+ * [http://osd-lyrics.googlecode.com/svn/images/vlc.png][http://www.videolan.org/vlc/ VLC](运行时需加参数"--control dbus")<font color="red">^新增!^</font>
+ * [http://osd-lyrics.googlecode.com/svn/images/xmms2.png][http://wiki.xmms2.xmms.se/wiki/Main_Page XMMS2]
+
+=歌词下载=
+
+OSD Lyrics目前支持从如下网站自动下载歌词：
+ * [http://www.ttplayer.com/ 千千静听]
