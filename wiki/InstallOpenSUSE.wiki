@@ -12,11 +12,6 @@ sudo zypper ar http://download.opensuse.org/repositories/home:/hillwood/openSUSE
 sudo zypper ar http://download.opensuse.org/repositories/home:/hillwood/openSUSE_11.4/ home:hillwood
 }}}
 
-==SLDE/SLDS 11 SP1==
-{{{
-sudo zypper ar http://download.opensuse.org/repositories/home:/hillwood/SLE_11_SP1/ home:hillwood
-}}}
-
 ==openSUSE Factory==
 {{{
 sudo zypper ar http://download.opensuse.org/repositories/home:/hillwood/openSUSE_Factory/ home:hillwood
@@ -31,7 +26,7 @@ sudo zypper ar http://download.opensuse.org/repositories/home:/hillwood/openSUSE
 
 After adding repository, you can use zypper to install it:
 {{{
-sudo zypper in osd-lyrics
+sudo zypper in osdlyrics
 }}}
 
 You can also search osd-lyrics in http://software.opensuse.org and choose _Include users' home projects_ to 1-Click install it. The repository will be added into your system automaticly.
