@@ -1,5 +1,5 @@
 #summary Install instruction for Ubuntu users
-#labels Featured,Phase-Deploy
+#labels Deprecated,Phase-Deploy
 <wiki:toc max_depth="2" />
 = Install from PPA (recommend) =
 == Ubuntu 9.10 or later ==
