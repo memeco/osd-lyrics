@@ -1,5 +1,5 @@
 #summary Build instructions.
-#labels Featured
+#labels Deprecated
 
 = Dependencies =
 == For deb systems ==
