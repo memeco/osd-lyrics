@@ -2,6 +2,8 @@
 #labels Featured,Phase-Deploy
 <wiki:toc max_depth="2" />
 = Install from PPA (recommend) =
+It is recommend to install OSD Lyrics from PPA in Launchpad.net so that you can get update notification in time.
+
 == Ubuntu 9.10 or later ==
 Import the PPA repository:
 {{{
