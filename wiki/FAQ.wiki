@@ -21,6 +21,9 @@ In the old version of OSD Lyrics, all lyrics are located in ~/.lyrics, in the fo
 
 = Troubleshooting =
 
+== I launch OSD Lyrics, but it quits immediately ==
+Prior to 0.4.1, you need to launch a supported player before launching OSD Lyrics. In 0.4.1, a player chooser will be shown if no supported player is running.
+
 == Why I can search lyrics, but fail downloading them ==
 It's a bug before version 0.2.20100106. If the first directory matched to download lyrics to doesn't exists, the the lyrics are failed to be downloaded. Just make the directory of the first directory in lyrics path option will work. Generally, it's "~/.lyrics" that you need to make.
 
