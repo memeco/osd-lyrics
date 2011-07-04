@@ -1,5 +1,5 @@
 #summary Install instruction for openSUSE users.
-#labels Featured
+#labels Featured,Phase-Deploy
 =Add the repository=
 
 ==openSUSE 11.3==
