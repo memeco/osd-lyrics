@@ -28,5 +28,8 @@ After adding repository, you can use zypper to install it:
 {{{
 sudo zypper in osdlyrics
 }}}
-
-You can also search osd-lyrics in http://software.opensuse.org and choose _Include users' home projects_ to 1-Click install it. The repository will be added into your system automaticly.
+Install osdlyrics beta:
+{{{
+sudo zypper in osdlyrics-beta
+}}}
+You can also search osdlyrics in http://software.opensuse.org and choose _Include users' home projects_ to 1-Click install it. The repository will be added into your system automaticly.
