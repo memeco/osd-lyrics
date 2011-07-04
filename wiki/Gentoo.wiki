@@ -1,5 +1,5 @@
 #summary Install instruction for Gentoo users
-#labels Featured
+#labels Deprecated
 OSD Lyrics has been added to [http://code.google.com/p/gentoo-china-overlay/ gentoo-china] overlay. If you didn't add gentoo-china overlay, you need to add it first. Otherwise you can skip adding the gentoo-china overlay.
 <wiki:toc max_depth="2" />
 
