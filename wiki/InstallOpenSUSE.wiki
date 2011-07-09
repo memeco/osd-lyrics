@@ -32,4 +32,8 @@ Install osdlyrics beta:
 {{{
 sudo zypper in osdlyrics-beta
 }}}
+Install develop version:
+{{{
+sudo zypper in osdlyrics-git
+}}}
 You can also search osdlyrics in http://software.opensuse.org and choose _Include users' home projects_ to 1-Click install it. The repository will be added into your system automaticly.
