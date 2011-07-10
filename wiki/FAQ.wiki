@@ -6,6 +6,8 @@ For Ubuntu users, please read [Ubuntu].
 
 For Fedora users, please read [Fedora].
 
+For openSUSE users, please read [openSUSE].
+
 For Gentoo users, please read [Gentoo].
 
 Other users please read [Build].
