@@ -28,8 +28,8 @@
 You have two ways to obtain the latest source codes.
 == Clone from github ==
 {{{
-git clone git://github.com/tigersoldier/osd-lyrics.git
-cd osd-lyrics
+git clone git://github.com/osdlyrics/osdlyrics.git
+cd osdlyrics
 }}}
 
 See [https://github.com/tigersoldier/osd-lyrics] for more information.
