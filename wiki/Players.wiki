@@ -2,28 +2,29 @@
 
 If you want any player be supported, please fire an [http://code.google.com/p/osd-lyrics/issues/list issue] instead of leaving message here :)
 
-|| *Player*                  || *Get info*         || *Get status* || *Play* || *Pause* || *Stop* || *Previous* || *Next* || *Seek* ||
-|| Amarok 1.4<sup>`[1]`</sup>|| Yes (without URI)  || No           || No     || No      || Yes    || No         || No     || No     ||
-|| Amarok 2.x                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
-|| Audacious                 || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
-|| Banshee                   || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
-|| Clementine               || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
-|| Deciber<sup>`[6]`</sup>|| Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
-|| Exaile 0.2                || Yes (without URI)  || Yes          || No     || No      || No     || No         || No     || No     ||
-|| Exaile 0.3                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
-|| Guayadeque 2.5                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
-|| Gmusicbrowser                || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
-|| Juk                       || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
-|| Listen               || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
-|| MPD<sup>`[2]`</sup>       || Yes (without URI)  || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
-|| MOC<sup>`[3]`</sup>       || Yes                || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
-|| Muine                     || Yes                || Yes          || Yes    || Yes     || No     || Yes        || Yes    || Yes    ||
-|| Qmmp                      || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
-|| Quod Libet                || Yes (without URI)  || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
-|| Rhythmbox                 || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
-|| Songbird<sup>`[4]`</sup>  || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
-|| vlc<sup>`[7]`</sup>     || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
-|| XMMS2<sup>`[5]`</sup>     || Yes                || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| *Player*                  || *URI* || *Get status* || *Play* || *Pause* || *Stop* || *Previous* || *Next* || *Seek* ||
+|| Amarok 1.4<sup>`[1]`</sup>|| No    || No           || No     || No      || Yes    || No         || No     || No     ||
+|| Amarok 2.x                || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Audacious                 || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Banshee                   || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Clementine                || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
+|| Deadbeef<sup>`[8]`</sup>  || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
+|| Deciber<sup>`[6]`</sup>   || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
+|| Exaile 0.2                || No    || Yes          || No     || No      || No     || No         || No     || No     ||
+|| Exaile 0.3                || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
+|| Guayadeque 2.5            || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
+|| Gmusicbrowser             || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes     ||
+|| Juk                       || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
+|| Listen                    || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || No     ||
+|| MPD<sup>`[2]`</sup>       || No    || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| MOC<sup>`[3]`</sup>       || Yes   || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
+|| Muine                     || Yes   || Yes          || Yes    || Yes     || No     || Yes        || Yes    || Yes    ||
+|| Qmmp                      || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Quod Libet                || No    || Yes          || Yes    || Yes     || No     || Yes        || Yes    || No     ||
+|| Rhythmbox                 || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| Songbird<sup>`[4]`</sup>  || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| vlc<sup>`[7]`</sup>       || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
+|| XMMS2<sup>`[5]`</sup>     || Yes   || Yes          || Yes    || Yes     || Yes    || Yes        || Yes    || Yes    ||
 
 `[1]`. Amarok 1.4 support is disabled by default, to enable it, you must pass --enable-amarok1 in the configure phase. See [Build#Available_Options build instructions] for details.
 
@@ -38,3 +39,5 @@ If you want any player be supported, please fire an [http://code.google.com/p/os
 `[6]`. Require Deciber 1.05 or later
 
 `[7]`. Run with parameter: "--control dbus"
+
+`[8]`. You need to install [https://code.google.com/p/deadbeef-mpris-plugin/ deadbeef-mpris-plugin] to support Deadbeef
