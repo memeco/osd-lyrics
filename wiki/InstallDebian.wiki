@@ -1,5 +1,5 @@
-#summary Install instruction for openSUSE users.
-#labels Phase-Support
+#summary Install instruction for Debian users.
+#labels Phase-Support,Featured
 =Add the repository=
 
 ==Debian 6==
