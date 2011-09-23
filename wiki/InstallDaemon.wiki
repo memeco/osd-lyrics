@@ -49,13 +49,7 @@ Now you get the code of OSD Lyrics 0.5
 When the source code is ready, run configure script:
 
 {{{
-./autogen.sh
-}}}
-
-If you are an ArchLinux user, you need to tell it to use Python 2.x:
-
-{{{
-./autogen.sh  PYTHON=/usr/bin/python2
+./autogen.sh --prefix=/usr
 }}}
 
 Now you can build and install the program:
@@ -65,4 +59,4 @@ make
 sudo make install
 }}}
 
-Now you can launch the new daemon with `osdlyrics-daemon`, and the GUI with `osdlyrics`.
+When you launch OSD Lyrics, the daemon will be launched automatically. If you want to launch the daemon only, run `osdlyrics-daemon`.
