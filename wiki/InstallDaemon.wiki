@@ -13,9 +13,9 @@ A new daemon will be introduced in OSD Lyrics 0.5. The new daemon is written by 
  * python >= 2.6
 
 == Python packages =
- * chardet
- * dbus
- * glib
+ * [http://chardet.feedparser.org/ chardet]
+ * [http://dbus.freedesktop.org/doc/dbus-python/ dbus-python]
+ * [http://live.gnome.org/PyGObject pygobject]
  * sqlite3
 
 == C libraries ==
