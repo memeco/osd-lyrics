@@ -1,6 +1,8 @@
 #summary Build instructions.
 #labels Featured,Phase-Deploy
 
+<wiki:toc />
+
 = Dependencies =
 == For deb systems ==
  * build-essential
@@ -65,6 +67,9 @@ make
 sudo make install
 }}}
 By ./configure, you can append some options after it. The available options you may be insterested in are list below. To get all available options, just ./configure --help
+
+== Notes for Ubuntu users ==
+In order to show the tray icon in Ubuntu, libappindicator-dev is required. When invoking `./configure` script, use `./configure --enable-appindicator` instead.
 
 == Available Options ==
 You can use following options when invoking configure script
