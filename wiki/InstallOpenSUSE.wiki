@@ -2,7 +2,9 @@
 #labels Featured,Phase-Deploy
 =Add the repository=
 
-OSDlyrics will be included in openSUSE 12.2, you can install it from OSS repository. And we will still provide community support. You can also add these community repository to install.
+OSD Lyrics will be included in openSUSE 12.2, you can install it from OSS repository. And we will still provide community support. You can also add these community repository to install.
+
+For uses of openSUSE older than 12.2, you need to add our repository to your system before installation. Just follow the instruction below:
 
 ==openSUSE 12.1==
 {{{
