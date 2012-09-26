@@ -4,7 +4,7 @@
 
 OSD Lyrics 已被纳入进 openSUSE 12.2，你可以直接从 OSS 源中安装，我们不再单独提供安装包。我们也将继续提供社区支持，你也可以通过添加社区源安装，
 
-OSD Lyrics will be included in openSUSE 12.2, you can install it from OSS repository. And we will still provide community support. You can also add these community repository to install.
+OSD Lyrics have been included in openSUSE 12.2, you can install it from OSS repository. And we will still provide community support. You can also add these community repository to install.
 
 对于使用低于版本号 12.2 的 openSUSE 用户，你得通过添加我们的社区源进行安装，请使用下面的命令完成操作：
 
